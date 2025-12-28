@@ -10,9 +10,9 @@ import { useToolStore } from '@/tools/tools.store'
 import ToolCard from '../components/ToolCard.vue'
 
 const toolStore = useToolStore();
-
-useHead({ title: 'Next-Tools - Handy online tools for developers' });
 const { t } = useI18n();
+
+useHead({ title: t('home.title') });
 
 const favoriteTools = computed(() => toolStore.favoriteTools);
 

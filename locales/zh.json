@@ -6,6 +6,7 @@
     "backHome": "返回主页"
   },
   "home": {
+    "title": "Next-Tools - 开发者在线工具箱",
     "categories": {
       "newestTools": "最新工具",
       "favoriteTools": "我的收藏",

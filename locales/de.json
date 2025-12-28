@@ -6,6 +6,7 @@
     "backHome": "Zurück zur Startseite"
   },
   "home": {
+    "title": "Next-Tools - Praktische Online-Tools für Entwickler",
     "categories": {
       "newestTools": "Neueste Tools",
       "favoriteTools": "Deine Lieblingstools",
