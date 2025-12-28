@@ -13,32 +13,6 @@ useHead({
       name: 'description',
       content: t('404.description'),
     },
-    // Open Graph (Facebook, 微信等)
-    {
-      property: 'og:title',
-      content: t('404.title'),
-    },
-    {
-      property: 'og:description',
-      content: t('404.description'),
-    },
-    {
-      property: 'og:image',
-      content: '/android-chrome-512x512.png',
-    },
-    // Twitter Card
-    {
-      name: 'twitter:title',
-      content: t('404.title'),
-    },
-    {
-      name: 'twitter:description',
-      content: t('404.description'),
-    },
-    {
-      name: 'twitter:image',
-      content: '/android-chrome-512x512.png',
-    },
   ],
 });
 </script>

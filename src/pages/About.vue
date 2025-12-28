@@ -26,32 +26,6 @@ useHead({
       name: 'description',
       content: t('about.description'),
     },
-    // Open Graph (Facebook, 微信等)
-    {
-      property: 'og:title',
-      content: t('about.title'),
-    },
-    {
-      property: 'og:description',
-      content: t('about.description'),
-    },
-    {
-      property: 'og:image',
-      content: '/android-chrome-512x512.png',
-    },
-    // Twitter Card
-    {
-      name: 'twitter:title',
-      content: t('about.title'),
-    },
-    {
-      name: 'twitter:description',
-      content: t('about.description'),
-    },
-    {
-      name: 'twitter:image',
-      content: '/android-chrome-512x512.png',
-    },
   ],
 })
 </script>
