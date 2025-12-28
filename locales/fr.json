@@ -1,12 +1,15 @@
 {
   "404": {
-    "notFound": "404 Not Found",
-    "sorry": "Sorry, this page does not seem to exist",
-    "maybe": "Maybe the cache is doing tricky things, try force-refreshing?",
-    "backHome": "Back home"
+    "title": "404 Non trouvé - Next Tools",
+    "description": "La page que vous recherchez n'existe pas. Retournez à la page d'accueil de Next Tools pour trouver les outils de développement dont vous avez besoin.",
+    "notFound": "404 Non trouvé",
+    "sorry": "Désolé, cette page ne semble pas exister",
+    "maybe": "Peut-être que le cache fait des siennes, essayez un rafraîchissement forcé ?",
+    "backHome": "Retour à l'accueil"
   },
   "home": {
     "title": "Next-Tools - Outils en ligne pratiques pour développeurs",
+    "description": "Next-Tools est une collection d'outils en ligne utiles pour les développeurs, avec une excellente expérience utilisateur. Comprend le formatage de code, la conversion de données, le traitement d'images et plus encore.",
     "categories": {
       "newestTools": "Newest tools",
       "favoriteTools": "Your favorite tools",
@@ -41,7 +44,8 @@
   },
   "about": {
     "content": "# À propos de Next-Tools\nNext-Tools est une collection d'outils pratiques en ligne conçus pour les développeurs et les professionnels de l'informatique. Ce projet est un fork et une amélioration du projet original [it-tools](https://github.com/CorentinTh/it-tools), reconstruit et maintenu par [Will Jay](https://github.com/willjayyyy).\n\nNotre mission est de fournir aux développeurs des outils efficaces et fiables qui rationalisent les workflows quotidiens. Que vous travailliez sur la conversion de données, le traitement de texte ou l'analyse réseau, Next-Tools offre une interface propre et intuitive pour accomplir rapidement le travail.\n\n## Ce qui rend Next-Tools spécial\n- **Open Source** : Sous licence GPL-3.0, gratuit et transparent\n- **Axé sur les développeurs** : Construit par les développeurs, pour les développeurs\n- **Confidentialité d'abord** : Tous les outils s'exécutent localement dans votre navigateur\n- **Mises à jour régulières** : Améliorations continues et ajouts d'outils\n\n## Technologies\nNext-Tools est construit avec des technologies web modernes :\n- **Vue.js 3** - Framework JavaScript progressif\n- **Naive UI** - Bibliothèque de composants Vue 3\n- **Vite** - Outil de construction rapide et serveur de développement\n- **TypeScript** - Développement avec sécurité de type\n\nNous utilisons également diverses bibliothèques open-source pour des fonctionnalités spécifiques. Vous pouvez trouver la liste complète dans notre [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json).\n\n## Communauté et contributions\nNous croyons au pouvoir de la collaboration open-source. Si vous avez des idées pour de nouveaux outils ou des améliorations, nous aimerions en entendre parler ! N'hésitez pas à :\n- ⭐ Mettre une étoile au dépôt si vous le trouvez utile\n- 🐛 Signaler des bugs ou des problèmes\n- 💡 Suggérer de nouveaux outils ou fonctionnalités\n- 🤝 Contribuer des améliorations de code\n\n## Trouvé un bug ? Besoin d'un nouvel outil ?\nNous maintenons activement ce projet et accueillons vos commentaires. Veuillez visiter notre [dépôt GitHub](https://github.com/willjayyyy/next-tools) pour :\n- Soumettre des demandes de fonctionnalités via les [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose)\n- Signaler des bugs nécessitant une correction\n- Consulter le code source et contribuer\n\nMerci d'utiliser Next-Tools ! Votre soutien nous aide à continuer à créer de meilleurs outils pour développeurs. 🚀\n",
-    "title": "Next Tools",
+    "title": "À propos - Next Tools",
+    "description": "En savoir plus sur Next Tools - une collection d'outils pratiques en ligne pour les développeurs. Découvrez notre mission, nos technologies et comment contribuer à ce projet open source.",
     "badges": {
       "openSource": "Open Source",
       "developerFriendly": "Développeur Amical",

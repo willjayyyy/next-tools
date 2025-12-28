@@ -1,5 +1,7 @@
 {
   "404": {
+    "title": "404 页面不存在 - Next Tools",
+    "description": "您访问的页面不存在。返回 Next Tools 主页，寻找您需要的开发者工具。",
     "notFound": "404 页面不存在",
     "sorry": "抱歉，该页面似乎不存在",
     "maybe": "也许缓存出现了一些问题，试试强制刷新页面？",
@@ -7,6 +9,7 @@
   },
   "home": {
     "title": "Next-Tools - 开发者在线工具箱",
+    "description": "Next-Tools 是一款专为开发者设计的实用在线工具集合，提供优秀的用户体验。包含代码格式化、数据转换、图片处理等功能。",
     "categories": {
       "newestTools": "最新工具",
       "favoriteTools": "我的收藏",
@@ -40,8 +43,9 @@
     }
   },
   "about": {
+    "title": "关于 - Next Tools",
+    "description": "了解 Next Tools - 专为开发者打造的实用在线工具集合。探索我们的使命、技术栈以及如何为这个开源项目做出贡献。",
     "content": "# 关于 Next-Tools\nNext-Tools 是一款专为开发者和 IT 专业人士打造的实用在线工具集合。这个项目是对原 [it-tools](https://github.com/CorentinTh/it-tools) 项目的分支和改进，由 [Will Jay](https://github.com/willjayyyy) 重构和维护。\n\n我们的使命是为开发者提供高效、可靠的工具，帮助简化日常工作流程。无论您在处理数据转换、文本处理还是网络分析，Next-Tools 都能为您提供简洁、直观的操作界面，让工作事半功倍。\n\n## Next-Tools 的特色\n- **开源精神**：采用 GPL-3.0 许可证，完全免费透明\n- **开发者优先**：由开发者打造，专为开发者服务\n- **隐私保护**：所有工具都在浏览器本地运行\n- **持续更新**：不断改进功能，定期添加新工具\n\n## 技术栈\nNext-Tools 使用现代 Web 技术构建：\n- **Vue.js 3** - 渐进式 JavaScript 框架\n- **Naive UI** - Vue 3 组件库\n- **Vite** - 快速构建工具和开发服务器\n- **TypeScript** - 类型安全的开发体验\n\n我们还使用了各种开源库来实现特定功能。您可以在 [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json) 中查看完整的依赖列表。\n\n## 社区与贡献\n我们相信开源协作的力量。如果您有新工具的想法或改进建议，我们非常乐意听取！您可以：\n- ⭐ 为项目点赞表示支持\n- 🐛 报告发现的问题\n- 💡 提出新工具或功能建议\n- 🤝 贡献代码改进\n\n## 发现 Bug？需要新工具？\n我们积极维护这个项目，欢迎您的反馈。请访问我们的 [GitHub 仓库](https://github.com/willjayyyy/next-tools)：\n- 通过 [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose) 提交功能请求\n- 报告需要修复的 Bug\n- 查看源代码并贡献力量\n\n感谢您使用 Next-Tools！您的支持将帮助我们继续打造更好的开发者工具。🚀\n",
-    "title": "Next Tools",
     "badges": {
       "openSource": "开源",
       "developerFriendly": "开发者友好",

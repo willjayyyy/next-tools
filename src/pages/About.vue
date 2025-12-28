@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
+import { useI18n } from 'vue-i18n'
 import {
   Code,
   Coffee,
@@ -16,7 +17,43 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Markdown from '../components/Markdown.vue';
 
-useHead({ title: 'About - Next Tools' })
+const { t } = useI18n()
+
+useHead({
+  title: t('about.title'),
+  meta: [
+    {
+      name: 'description',
+      content: t('about.description'),
+    },
+    // Open Graph (Facebook, 微信等)
+    {
+      property: 'og:title',
+      content: t('about.title'),
+    },
+    {
+      property: 'og:description',
+      content: t('about.description'),
+    },
+    {
+      property: 'og:image',
+      content: '/android-chrome-512x512.png',
+    },
+    // Twitter Card
+    {
+      name: 'twitter:title',
+      content: t('about.title'),
+    },
+    {
+      name: 'twitter:description',
+      content: t('about.description'),
+    },
+    {
+      name: 'twitter:image',
+      content: '/android-chrome-512x512.png',
+    },
+  ],
+})
 </script>
 
 <template>

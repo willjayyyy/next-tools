@@ -1,5 +1,7 @@
 {
   "404": {
+    "title": "404 Not Found - Next Tools",
+    "description": "The page you're looking for doesn't exist. Return to Next Tools homepage to find the developer tools you need.",
     "notFound": "404 Not Found",
     "sorry": "Sorry, this page does not seem to exist",
     "maybe": "Maybe the cache is doing tricky things, try force-refreshing?",
@@ -7,6 +9,7 @@
   },
   "home": {
     "title": "Next-Tools - Handy online tools for developers",
+    "description": "Next-Tools is a collection of useful online tools for developers, with great UX. Features include code formatting, data conversion, image processing, and more.",
     "categories": {
       "newestTools": "Newest tools",
       "favoriteTools": "Your favorite tools",
@@ -40,8 +43,9 @@
     }
   },
   "about": {
+    "title": "About - Next Tools",
+    "description": "Learn about Next Tools - a collection of practical online tools for developers. Discover our mission, technologies, and how to contribute to this open-source project.",
     "content": "# About Next-Tools\nNext-Tools is a collection of practical online tools designed for developers and IT professionals. This project is a fork and enhancement of the original [it-tools](https://github.com/CorentinTh/it-tools) project, rebuilt and maintained by [Will Jay](https://github.com/willjayyyy).\n\nOur mission is to provide developers with efficient, reliable tools that streamline daily workflows. Whether you're working on data conversion, text processing, or network analysis, Next-Tools offers a clean, intuitive interface to get the job done quickly.\n\n## What Makes Next-Tools Special\n- **Open Source**: Licensed under GPL-3.0, free and transparent\n- **Developer Focused**: Built by developers, for developers\n- **Privacy First**: All tools run locally in your browser\n- **Regular Updates**: Continuous improvements and new tool additions\n\n## Technologies\nNext-Tools is built with modern web technologies:\n- **Vue.js 3** - Progressive JavaScript framework\n- **Naive UI** - Vue 3 component library\n- **Vite** - Fast build tool and development server\n- **TypeScript** - Type-safe development\n\nWe also leverage various open-source libraries for specific functionality. You can find the complete list in our [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json).\n\n## Community & Contributions\nWe believe in the power of open-source collaboration. If you have ideas for new tools or improvements, we'd love to hear from you! Feel free to:\n- ⭐ Star the repository if you find it useful\n- 🐛 Report bugs or issues\n- 💡 Suggest new tools or features\n- 🤝 Contribute code improvements\n\n## Found a bug? Need a new tool?\nWe actively maintain this project and welcome your feedback. Please visit our [GitHub repository](https://github.com/willjayyyy/next-tools) to:\n- Submit feature requests via [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose)\n- Report bugs that need fixing\n- Check out the source code and contribute\n\nThank you for using Next-Tools! Your support helps us continue building better developer tools. 🚀\n",
-    "title": "Next Tools",
     "badges": {
       "openSource": "Open Source",
       "developerFriendly": "Developer Friendly",

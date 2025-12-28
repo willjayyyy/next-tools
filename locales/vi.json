@@ -1,18 +1,21 @@
 {
   "404": {
+    "title": "404 Không tìm thấy - Next Tools",
+    "description": "Trang bạn đang tìm kiếm không tồn tại. Quay trở lại trang chủ Next Tools để tìm các công cụ nhà phát triển bạn cần.",
     "notFound": "404 Không Tìm Thấy",
     "sorry": "Xin lỗi, trang này dường như không tồn tại",
     "maybe": "Lỗi xảy ra có thể do bộ nhớ đệm, hãy (CTRL + F5) để tải lại trang?",
     "backHome": "Quay về trang chủ"
   },
   "home": {
+    "title": "Next-Tools - Công cụ trực tuyến hữu ích cho nhà phát triển",
+    "description": "Next-Tools là bộ sưu tập các công cụ trực tuyến hữu ích cho nhà phát triển, với trải nghiệm người dùng tuyệt vời. Bao gồm định dạng mã, chuyển đổi dữ liệu, xử lý hình ảnh và nhiều hơn nữa.",
     "categories": {
       "newestTools": "Công cụ mới nhất",
       "favoriteTools": "Công cụ yêu thích của bạn",
       "allTools": "Tất cả công cụ",
       "favoritesDndToolTip": "Kéo thả để sắp xếp lại yêu thích"
     },
-    "title": "Next-Tools - Công cụ trực tuyến hữu ích cho nhà phát triển",
     "subtitle": "Công cụ trực tuyến hữu ích cho nhà phát triển",
     "toggleMenu": "Chuyển đổi menu",
     "home": "Trang chủ",
@@ -41,7 +44,8 @@
   },
   "about": {
     "content": "# Về Next-Tools\nNext-Tools là bộ sưu tập các công cụ trực tuyến thực tế được thiết kế cho các nhà phát triển và chuyên gia IT. Dự án này là một fork và cải tiến của dự án [it-tools](https://github.com/CorentinTh/it-tools) gốc, được xây dựng lại và duy trì bởi [Will Jay](https://github.com/willjayyyy).\n\nSứ mệnh của chúng tôi là cung cấp cho các nhà phát triển các công cụ hiệu quả và đáng tin cậy giúp hợp lý hóa quy trình làm việc hàng ngày. Cho dù bạn đang làm việc với việc chuyển đổi dữ liệu, xử lý văn bản hay phân tích mạng, Next-Tools đều cung cấp giao diện sạch và trực quan để hoàn thành công việc nhanh chóng.\n\n## Điều làm nên sự đặc biệt của Next-Tools\n- **Mã nguồn mở**: Được cấp phép theo GPL-3.0, miễn phí và minh bạch\n- **Tập trung vào nhà phát triển**: Được xây dựng bởi nhà phát triển, dành cho nhà phát triển\n- **Quyền riêng tư trên hết**: Tất cả các công cụ chạy cục bộ trong trình duyệt của bạn\n- **Cập nhật thường xuyên**: Cải tiến liên tục và bổ sung công cụ mới\n\n## Công nghệ\nNext-Tools được xây dựng bằng các công nghệ web hiện đại:\n- **Vue.js 3** - Framework JavaScript tiến bộ\n- **Naive UI** - Thư viện thành phần Vue 3\n- **Vite** - Công cụ xây dựng nhanh và máy chủ phát triển\n- **TypeScript** - Phát triển với tính an toàn kiểu\n\nChúng tôi cũng sử dụng nhiều thư viện mã nguồn mở khác nhau cho các chức năng cụ thể. Bạn có thể tìm thấy danh sách đầy đủ trong [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json) của chúng tôi.\n\n## Cộng đồng và đóng góp\nChúng tôi tin tưởng vào sức mạnh của sự hợp tác mã nguồn mở. Nếu bạn có ý tưởng cho các công cụ mới hoặc cải tiến, chúng tôi rất muốn nghe! Bạn có thể:\n- ⭐ Cho sao kho lưu trữ nếu bạn thấy nó hữu ích\n- 🐛 Báo cáo lỗi hoặc vấn đề\n- 💡 Đề xuất công cụ hoặc tính năng mới\n- 🤝 Đóng góp cải tiến mã\n\n## Phát hiện lỗi? Cần công cụ mới?\nChúng tôi duy trì tích cực dự án này và đánh giá cao phản hồi của bạn. Vui lòng truy cập [kho lưu trữ GitHub](https://github.com/willjayyyy/next-tools) của chúng tôi để:\n- Gửi yêu cầu tính năng thông qua [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose)\n- Báo cáo lỗi cần sửa chữa\n- Xem mã nguồn và đóng góp\n\nCảm ơn bạn đã sử dụng Next-Tools! Sự hỗ trợ của bạn giúp chúng tôi tiếp tục tạo ra các công cụ tốt hơn cho nhà phát triển. 🚀\n",
-    "title": "Next Tools",
+    "title": "Giới thiệu - Next Tools",
+    "description": "Tìm hiểu thêm về Next Tools - bộ sưu tập các công cụ trực tuyến hữu ích cho nhà phát triển. Khám phá sứ mệnh, công nghệ của chúng tôi và cách đóng góp cho dự án mã nguồn mở này.",
     "badges": {
       "openSource": "Mã nguồn mở",
       "developerFriendly": "Thân thiện với nhà phát triển",

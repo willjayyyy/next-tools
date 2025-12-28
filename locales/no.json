@@ -1,20 +1,23 @@
 {
   "404": {
+    "title": "404 Ikke funnet - Next Tools",
+    "description": "Siden du leter etter finnes ikke. Gå tilbake til Next Tools hjemmesiden for å finne utviklerverktøyene du trenger.",
     "notFound": "404 ikke funnet",
     "sorry": "Beklager, denne siden ser ikke ut til å eksistere",
     "maybe": "Kanskje informasjonskapslene oppfører seg rart, prøvd en tvungen oppfriskning?",
     "backHome": "Tilbake til start"
   },
   "home": {
+    "title": "Next-Tools - Praktiske online-verktøy for utviklere",
+    "description": "Next-Tools er en samling nyttige online-verktøy for utviklere, med flott brukeropplevelse. Inkluderer kodeformatering, datakonvertering, bildebehandling og mer.",
     "categories": {
       "newestTools": "Nyeste verktøy",
       "favoriteTools": "Dine favoritt verktøy",
       "allTools": "Alle verktøyene",
       "favoritesDndToolTip": "Dra og slipp for å omordne favoritter"
     },
-    "title": "Next-Tools - Nyttige online-verktøy for utviklere",
     "subtitle": "Nyttige online-verktøy for utviklere",
-    "toggleMenu": "Vekslemenmy",
+    "toggleMenu": "Veksle meny",
     "home": "Hjem",
     "uiLib": "UI bibliotek",
     "support": "Støtt utviklingen av Next-Tools",
@@ -41,7 +44,8 @@
   },
   "about": {
     "content": "# Om Next-Tools\nNext-Tools er en samling praktiske online-verktøy designet for utviklere og IT-profesjonelle. Dette prosjektet er en fork og forbedring av det originale [it-tools](https://github.com/CorentinTh/it-tools) prosjektet, gjenoppbygd og vedlikeholdt av [Will Jay](https://github.com/willjayyyy).\n\nVår misjon er å gi utviklere effektive og pålitelige verktøy som effektiviserer daglige arbeidsflyter. Enten du jobber med datakonvertering, tekstbehandling eller nettverksanalyse, tilbyr Next-Tools et rent og intuitivt grensesnitt for å få jobben gjort raskt.\n\n## Hva gjør Next-Tools spesielt\n- **Åpen kildekode**: Lisensiert under GPL-3.0, gratis og transparent\n- **Utviklerfokusert**: Bygget av utviklere, for utviklere\n- **Personvern først**: Alle verktøy kjører lokalt i nettleseren din\n- **Regelmessige oppdateringer**: Kontinuerlige forbedringer og nye verktøytillegg\n\n## Teknologier\nNext-Tools er bygget med moderne web-teknologier:\n- **Vue.js 3** - Progressivt JavaScript-rammeverk\n- **Naive UI** - Vue 3 komponentbibliotek\n- **Vite** - Rask byggverktøy og utviklingsserver\n- **TypeScript** - Utvikling med typesikkerhet\n\nVi bruker også forskjellige åpen kildekode-biblioteker for spesifikke funksjoner. Du finner den komplette listen i vår [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json).\n\n## Fellesskap og bidrag\nVi tror på kraften i åpen kildekode-samarbeid. Hvis du har ideer til nye verktøy eller forbedringer, vil vi gjerne høre dem! Du kan:\n- ⭐ Gi stjerne til repositoriet hvis du synes det er nyttig\n- 🐛 Rapportere feil eller problemer\n- 💡 Foreslå nye verktøy eller funksjoner\n- 🤝 Bidra med kodeforbedringer\n\n## Funnet en feil? Trenger nytt verktøy?\nVi vedlikeholder aktivt dette prosjektet og setter pris på tilbakemeldingen din. Vennligst besøk vårt [GitHub-repositorium](https://github.com/willjayyyy/next-tools) for å:\n- Sende inn funksjonsforespørsler via [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose)\n- Rapportere feil som trenger retting\n- Se kildekoden og bidra\n\nTakk for at du bruker Next-Tools! Din støtte hjelper oss å fortsette å skape bedre verktøy for utviklere. 🚀\n",
-    "title": "Next Tools",
+    "title": "Om - Next Tools",
+    "description": "Lær mer om Next Tools - en samling praktiske online-verktøy for utviklere. Oppdag vår misjon, teknologier og hvordan du kan bidra til dette open source-prosjektet.",
     "badges": {
       "openSource": "Åpen kildekode",
       "developerFriendly": "Utviklervennlig",

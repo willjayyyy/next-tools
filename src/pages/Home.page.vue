@@ -12,7 +12,31 @@ import ToolCard from '../components/ToolCard.vue'
 const toolStore = useToolStore();
 const { t } = useI18n();
 
-useHead({ title: t('home.title') });
+useHead({
+  title: t('home.title'),
+  meta: [
+    {
+      name: 'description',
+      content: t('home.description'),
+    },
+    {
+      property: 'og:title',
+      content: t('home.title'),
+    },
+    {
+      property: 'og:description',
+      content: t('home.description'),
+    },
+    {
+      name: 'twitter:title',
+      content: t('home.title'),
+    },
+    {
+      name: 'twitter:description',
+      content: t('home.description'),
+    },
+  ],
+});
 
 const favoriteTools = computed(() => toolStore.favoriteTools);
 
@@ -23,7 +47,7 @@ function onUpdateFavoriteTools() {
 
 <template>
   <div class="bg-linear-to-br from-background via-background to-muted/20">
-    <div class="container mx-auto px-4 py-16">
+    <div class="container mx-auto px-4 py-12">
       <!-- Tools Grid Container -->
       <div class="space-y-12">
         <!-- Favorite Tools Section -->

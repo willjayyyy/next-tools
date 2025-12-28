@@ -1,5 +1,7 @@
 {
   "404": {
+    "title": "404 Nicht gefunden - Next Tools",
+    "description": "Die Seite, die Sie suchen, existiert nicht. Kehren Sie zur Next Tools-Startseite zurück, um die Entwicklertools zu finden, die Sie benötigen.",
     "notFound": "404 Nicht gefunden",
     "sorry": "Entschuldigung, diese Seite scheint nicht zu existieren",
     "maybe": "Vielleicht macht der Cache etwas Seltsames. Mit einem erzwungenen Neuladen versuchen?",
@@ -7,6 +9,7 @@
   },
   "home": {
     "title": "Next-Tools - Praktische Online-Tools für Entwickler",
+    "description": "Next-Tools ist eine Sammlung nützlicher Online-Tools für Entwickler mit hervorragender Benutzererfahrung. Enthält Code-Formatierung, Datenkonvertierung, Bildverarbeitung und mehr.",
     "categories": {
       "newestTools": "Neueste Tools",
       "favoriteTools": "Deine Lieblingstools",
@@ -41,7 +44,8 @@
   },
   "about": {
     "content": "# Über Next-Tools\nNext-Tools ist eine Sammlung praktischer Online-Tools, die für Entwickler und IT-Profis entwickelt wurden. Dieses Projekt ist ein Fork und eine Verbesserung des ursprünglichen [it-tools](https://github.com/CorentinTh/it-tools) Projekts, das von [Will Jay](https://github.com/willjayyyy) neu aufgebaut und gepflegt wird.\n\nUnsere Mission ist es, Entwicklern effiziente und zuverlässige Tools zur Verfügung zu stellen, die den täglichen Arbeitsablauf rationalisieren. Egal, ob Sie an Datenkonvertierung, Textverarbeitung oder Netzwerkanalyse arbeiten, Next-Tools bietet eine saubere, intuitive Benutzeroberfläche, um die Arbeit schnell zu erledigen.\n\n## Was Next-Tools besonders macht\n- **Open Source**: Lizenziert unter GPL-3.0, kostenlos und transparent\n- **Entwickler fokussiert**: Von Entwicklern gebaut, für Entwickler\n- **Datenschutz zuerst**: Alle Tools laufen lokal in Ihrem Browser\n- **Regelmäßige Updates**: Kontinuierliche Verbesserungen und neue Tool-Zugaben\n\n## Technologien\nNext-Tools ist mit modernen Web-Technologien gebaut:\n- **Vue.js 3** - Progressives JavaScript-Framework\n- **Naive UI** - Vue 3 Komponentenbibliothek\n- **Vite** - Schnelles Build-Tool und Entwicklungsserver\n- **TypeScript** - Typ-sichere Entwicklung\n\nWir nutzen auch verschiedene Open-Source-Bibliotheken für spezifische Funktionalitäten. Die vollständige Liste finden Sie in unserer [package.json](https://github.com/willjayyyy/next-tools/blob/main/package.json).\n\n## Community und Beiträge\nWir glauben an die Kraft der Open-Source-Zusammenarbeit. Wenn Sie Ideen für neue Tools oder Verbesserungen haben, würden wir uns freuen, davon zu hören! Sie können:\n- ⭐ Das Repository mit einem Stern markieren, wenn Sie es nützlich finden\n- 🐛 Bugs oder Probleme melden\n- 💡 Neue Tools oder Funktionen vorschlagen\n- 🤝 Code-Verbesserungen beitragen\n\n## Einen Bug gefunden? Neues Tool benötigt?\nWir pflegen dieses Projekt aktiv und freuen uns über Ihr Feedback. Besuchen Sie bitte unser [GitHub-Repository](https://github.com/willjayyyy/next-tools), um:\n- Feature-Anfragen über [Issues](https://github.com/willjayyyy/next-tools/issues/new/choose) einzureichen\n- Bugs zu melden, die behoben werden müssen\n- Den Quellcode anzusehen und beizutragen\n\nVielen Dank für die Nutzung von Next-Tools! Ihre Unterstützung hilft uns, bessere Entwicklertools zu schaffen. 🚀\n",
-    "title": "Next Tools",
+    "title": "Über - Next Tools",
+    "description": "Erfahren Sie mehr über Next Tools - eine Sammlung praktischer Online-Tools für Entwickler. Entdecken Sie unsere Mission, Technologien und wie Sie zu diesem Open-Source-Projekt beitragen können.",
     "badges": {
       "openSource": "Open Source",
       "developerFriendly": "Entwicklerfreundlich",

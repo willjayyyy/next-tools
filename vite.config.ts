@@ -62,7 +62,7 @@ export default defineConfig({
         start_url: `${baseUrl}?utm_source=pwa&utm_medium=pwa`,
         orientation: 'any',
         theme_color: '#F0F3F0',
-        background_color: '#ffffff', // 白色背景，图标有自己的绿色半透明背景
+        background_color: '#ffffff',
         icons: [
           {
             src: '/favicon-16x16.png',
@@ -77,6 +77,21 @@ export default defineConfig({
           {
             src: '/apple-touch-icon-180x180.png',
             sizes: '180x180',
+            type: 'image/png',
+          },
+          {
+            src: '/apple-touch-icon-152x152.png',
+            sizes: '152x152',
+            type: 'image/png',
+          },
+          {
+            src: '/apple-touch-icon-120x120.png',
+            sizes: '120x120',
+            type: 'image/png',
+          },
+          {
+            src: '/apple-touch-icon-40x40.png',
+            sizes: '40x40',
             type: 'image/png',
           },
           {
