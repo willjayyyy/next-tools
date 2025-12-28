@@ -1,12 +1,13 @@
 import type { MaybeRef, Ref } from 'vue';
 import type { Tool, ToolCategory, ToolWithCategory } from './tools.types';
 import { get, useStorage } from '@vueuse/core';
-import { chain } from 'lodash';
+import { chain, uniq } from 'lodash';
 import { defineStore } from 'pinia';
 import { toolsWithCategory } from './index'
 
 export const useToolStore = defineStore('tools', () => {
-  const favoriteToolsName = useStorage('favoriteToolsName', []) as Ref<string[]>
+  const favoriteToolsName = useStorage('favorite-tools-name', []) as Ref<string[]>
+  const recentToolsKeys = useStorage('recent-tools-keys', []) as Ref<string[]>
   const { t } = useI18n()
 
   const tools = computed<ToolWithCategory[]>(() => toolsWithCategory.map((tool) => {
@@ -36,9 +37,16 @@ export const useToolStore = defineStore('tools', () => {
       .filter(Boolean) as ToolWithCategory[] // cast because .filter(Boolean) does not remove undefined from type
   });
 
+  const recentTools = computed(() => {
+    return recentToolsKeys.value
+      .map(recentKey => tools.value.find(tool => tool.key === recentKey))
+      .filter(Boolean) as ToolWithCategory[]
+  });
+
   return {
     tools,
     favoriteTools,
+    recentTools,
     toolsByCategory,
 
     addToolToFavorites({ tool }: { tool: MaybeRef<Tool> }) {
@@ -59,6 +67,12 @@ export const useToolStore = defineStore('tools', () => {
 
     updateFavoriteTools(newOrder: ToolWithCategory[]) {
       favoriteToolsName.value = newOrder.map(tool => tool.path)
+    },
+
+    recordToolVisit(toolKey: string) {
+      const maxRecentTools = 10
+      // remove existing record and limit the number of recent tools
+      recentToolsKeys.value = uniq([toolKey, ...recentToolsKeys.value]).slice(0, maxRecentTools)
     },
   }
 });
