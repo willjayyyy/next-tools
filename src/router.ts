@@ -4,6 +4,7 @@ import { layouts } from './layouts/index'
 import NotFound from './pages/404.page.vue'
 import HomePage from './pages/Home.page.vue'
 import { tools } from './tools'
+import { useToolStore } from './tools/tools.store'
 
 const toolsRoutes = tools.map(({ path, name, component, key, ...config }) => ({
   path,
@@ -35,5 +36,14 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
   ],
 });
+
+// 记录工具访问的导航守卫
+router.beforeEach((to, from, next) => {
+  if (to.meta?.isTool && to.name) {
+    const toolStore = useToolStore()
+    toolStore.recordToolVisit(to.name as string)
+  }
+  next()
+})
 
 export default router;
