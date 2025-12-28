@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 2025.12.28-e50ebc7
+
+### Features
+-  bind dev server to 0.0.0.0 for network access (f7fcf72)
+
+### Bug fixes
+-  add absolute paths to HTML resource links (e50ebc7)
+
+### Refactoring
+-  unify social sharing meta tags in App.vue (38d2131)
+
 ## Version 2025.12.28-c200c88
 
 ### Features
