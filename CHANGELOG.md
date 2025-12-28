@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 2025.12.28-c200c88
+
+### Features
+-  enhance PWA icons and internationalization (c200c88)
+
 ## Version 2025.12.28-9a070db
 
 ### Features
