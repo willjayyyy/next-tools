@@ -1,7 +1,7 @@
 {
   "name": "next-tools",
   "type": "module",
-  "version": "2025.12.28-839e753",
+  "version": "2025.12.28-77148e1",
   "packageManager": "pnpm@9.11.0",
   "description": "Collection of handy online tools for developers, with great UX. ",
   "author": "Will Jay",
