@@ -5,13 +5,10 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import AutoImport from 'unplugin-auto-import/vite';
-import IconsResolver from 'unplugin-icons/resolver';
-import Icons from 'unplugin-icons/vite';
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import eslint from 'vite-plugin-eslint';
 import Markdown from 'unplugin-vue-markdown/vite';
 import svgLoader from 'vite-svg-loader';
 import { configDefaults } from 'vitest/config';
@@ -21,9 +18,6 @@ const baseUrl = process.env.BASE_URL ?? '/';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    eslint({
-      include: ['src/**/*.ts', 'src/**/*.vue'],
-    }),
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
@@ -48,7 +42,6 @@ export default defineConfig({
         enabled: true,
       },
     }),
-    Icons({ compiler: 'vue3' }),
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
@@ -104,7 +97,7 @@ export default defineConfig({
       dirs: ['src/'],
       extensions: ['vue', 'md'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-      resolvers: [NaiveUiResolver(), IconsResolver({ prefix: 'icon' })],
+      resolvers: [NaiveUiResolver()],
     }),
   ],
   base: baseUrl,
