@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 2025.12.28-77148e1
+
+### Features
+-  add internationalization for command palette features (7cc0710)
+-  add tool visit tracking to router navigation guard (214969a)
+-  add recent tools feature to command palette (4746a82)
+
+### Refactoring
+-  clean up dependencies and build configuration (77148e1)
+-  normalize localStorage key naming convention (30490be)
+-  migrate from mdi icons to lucide-vue-next (ab472ce)
+
 ## [2025.12.28-839e753] - 2025-12-28
 
 ### Features
