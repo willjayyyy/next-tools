@@ -43,7 +43,7 @@ useHead(() => ({
     },
     {
       property: 'og:image',
-      content: `${origin.value}/android-chrome-512x512.png`,
+      content: `${origin.value}/android-chrome-maskable-512x512.png`,
     },
     {
       property: 'og:image:width',
@@ -67,7 +67,7 @@ useHead(() => ({
     },
     {
       name: 'twitter:image',
-      content: `${origin.value}/android-chrome-512x512.png`,
+      content: `${origin.value}/android-chrome-maskable-512x512.png`,
     },
   ],
 }));
