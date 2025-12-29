@@ -12,7 +12,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["naive-ui/volar", "@intlify/unplugin-vue-i18n/messages", "unplugin-icons/types/vue"],
+    "types": ["@intlify/unplugin-vue-i18n/messages"],
     "esModuleInterop": true,
     "jsx": "preserve",
     "skipLibCheck": true

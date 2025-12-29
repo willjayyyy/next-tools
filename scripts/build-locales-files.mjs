@@ -1,6 +1,6 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { Glob } from 'bun';
-import { chain, uniq } from 'lodash';
+import { chain } from 'lodash';
 
 async function getPathsFromGlobs({ patterns, onlyFiles = true }) {
   const filePaths = [];

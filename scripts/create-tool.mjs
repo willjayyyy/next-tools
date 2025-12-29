@@ -1,11 +1,12 @@
-import { mkdir, readFile, writeFile } from 'fs/promises';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { process } from 'node:process';
 
 const currentDirname = dirname(fileURLToPath(import.meta.url));
 
 const toolsDir = join(currentDirname, '..', 'src', 'tools');
-// eslint-disable-next-line no-undef
+ 
 const toolName = process.argv[2];
 
 if (!toolName) {
@@ -37,9 +38,6 @@ createToolFile(
 <script setup lang="ts">
 
 </script>
-
-<style lang="less" scoped>
-</style>
 `,
 );
 

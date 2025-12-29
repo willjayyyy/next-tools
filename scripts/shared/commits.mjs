@@ -24,13 +24,13 @@ const getCommitTypeSortIndex = (type) =>
 function parseCommitLine(commit) {
   const [sha, ...splittedRawMessage] = commit.trim().split(' ');
   const rawMessage = splittedRawMessage.join(' ');
-  const { type, scope, subject } = /^(?<type>.*?)(\((?<scope>.*)\))?: ?(?<subject>.+)$/.exec(rawMessage)?.groups ?? {};
+  const match = /^(?<type>[^:(]+)(?:\((?<scope>[^)]+)\))?: ?(?<subject>.+)$/.exec(rawMessage);
 
   return {
     sha: sha.slice(0, 7),
-    type: type ?? 'other',
-    scope,
-    subject: subject ?? rawMessage,
+    type: match?.groups?.type ?? 'other',
+    scope: match?.groups?.scope,
+    subject: match?.groups?.subject ?? rawMessage,
   };
 }
 
@@ -42,10 +42,19 @@ function commitSectionsToMarkdown({ type, commits }) {
 }
 
 function rawCommitsToMarkdown({ rawCommits }) {
-  return chain(rawCommits)
+  const commits = chain(rawCommits)
     .trim()
     .split('\n')
+    .filter(line => line.trim()) // Filter out empty lines
     .map(parseCommitLine)
+    .value();
+
+  // If no valid commits, return empty string
+  if (!commits.length) {
+    return '';
+  }
+
+  return chain(commits)
     .groupBy('type')
     .map((commits, type) => ({ type, commits }))
     .sortBy(({ type }) => getCommitTypeSortIndex(type))
