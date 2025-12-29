@@ -31,7 +31,6 @@ import { useToolStore } from '@/tools/tools.store'
 
 const styleStore = useStyleStore();
 const version = config.app.version;
-const commitSha = config.app.lastCommitSha.slice(0, 7);
 
 const { t } = useI18n();
 const route = useRoute();
@@ -140,19 +139,6 @@ const tools = computed<ToolCategory[]>(() => [
           >
             v{{ version }}
           </Button>
-          <template v-if="commitSha && commitSha.length > 0">
-            <span>-</span>
-            <Button
-              as="a"
-              variant="link"
-              class="p-0 h-auto text-xs"
-              target="_blank"
-              rel="noopener"
-              :href="`https://github.com/willjayyyy/next-tools/tree/${commitSha}`"
-            >
-              {{ commitSha }}
-            </Button>
-          </template>
         </div>
         <div class="mt-0.5">
           © {{ new Date().getFullYear() }}
