@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.3.3
+
+### Chores
+- **icons**: update maskable PWA icons (192x192, 512x512) (bbe9673)
+
 ## Version 1.3.2
 
 ### Bug fixes
