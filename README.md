@@ -171,6 +171,8 @@ VITE_UMAMI_SCRIPT_URL=https://analytics.umami.is/script.js  # Optional custom UR
 
 Analytics only run in production builds and are completely optional.
 
+For detailed setup instructions, see the [Vercel Web Analytics Guide](docs/VERCEL_ANALYTICS.md).
+
 ## 📄 License
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE).
