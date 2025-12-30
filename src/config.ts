@@ -1,5 +1,5 @@
 import { defineConfig } from 'figue'
-import * as v from 'valibot'
+import { z } from 'zod'
 
 export const config = defineConfig(
   {
@@ -20,13 +20,13 @@ export const config = defineConfig(
     vercelAnalytics: {
       enabled: {
         doc: 'Enable Vercel Analytics',
-        schema: v.boolean(),
+        schema: z.coerce.boolean(),
         default: false,
         env: 'VITE_ENABLE_VERCEL_ANALYTICS',
       },
       debug: {
         doc: 'Enable debug logging for Vercel Analytics',
-        schema: v.boolean(),
+        schema: z.coerce.boolean(),
         default: false,
         env: 'VITE_DEBUG_VERCEL_ANALYTICS',
       },
@@ -34,7 +34,7 @@ export const config = defineConfig(
     googleAnalytics: {
       id: {
         doc: 'Google Analytics Measurement ID (G-XXXXXXXXXX). Presence enables GA.',
-        schema: v.string(),
+        schema: z.string(),
         default: '',
         env: 'VITE_GOOGLE_ANALYTICS_ID',
       },
@@ -42,13 +42,13 @@ export const config = defineConfig(
     umamiAnalytics: {
       websiteId: {
         doc: 'Umami website ID. Presence enables Umami analytics.',
-        schema: v.string(),
+        schema: z.string(),
         default: '',
         env: 'VITE_UMAMI_WEBSITE_ID',
       },
       scriptUrl: {
         doc: 'Umami script URL.',
-        schema: v.string(),
+        schema: z.string(),
         default: 'https://analytics.umami.is/script.js',
         env: 'VITE_UMAMI_SCRIPT_URL',
       },

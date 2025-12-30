@@ -257,6 +257,9 @@ importers:
       yaml:
         specifier: ^2.8.2
         version: 2.8.2
+      zod:
+        specifier: ^4.2.1
+        version: 4.2.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.16.0
@@ -6480,6 +6483,9 @@ packages:
 
   zhead@2.2.4:
     resolution: {integrity: sha512-8F0OI5dpWIA5IGG5NHUg9staDwz/ZPxZtvGVf01j7vHqSyZ0raHY+78atOVxRqb73AotX22uV1pXt3gYSstGag==}
+
+  zod@4.2.1:
+    resolution: {integrity: sha512-0wZ1IRqGGhMP76gLqz8EyfBXKk0J2qo2+H3fi4mcUP/KtTocoX08nmIAHl1Z2kJIZbZee8KOpBCSNPRgauucjw==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -13358,6 +13364,8 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   zhead@2.2.4: {}
+
+  zod@4.2.1: {}
 
   zwitch@2.0.4: {}
 
