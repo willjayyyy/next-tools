@@ -7,24 +7,9 @@ import { Toaster } from '@/components/ui/sonner';
 import Analytics from '@/components/analytics/Analytics.vue';
 import Consent from '@/components/consent/Consent.vue';
 import { layouts } from './layouts';
-import { useStyleStore } from './stores/style.store';
 
 const route = useRoute();
-const layout = computed(() => route?.meta?.layout ?? layouts.base);
-const styleStore = useStyleStore();
-
-const customPrimaryHsl = useStorage<string | null>('custom-primary-hsl', null);
-const themeClass = computed(() => (styleStore.isDarkTheme ? 'dark' : ''));
-const themeVars = computed(() =>
-  customPrimaryHsl.value
-    ? {
-        '--primary': customPrimaryHsl.value,
-        '--sidebar-primary': customPrimaryHsl.value,
-        '--sidebar-ring': customPrimaryHsl.value,
-        '--ring': customPrimaryHsl.value,
-      }
-    : {},
-);
+const layout = computed(() => route?.meta?.layout ?? layouts.base); 
 
 const { locale } = useI18n();
 const { language } = useNavigatorLanguage();
@@ -83,7 +68,7 @@ syncRef(useStorage('locale', language.value?.split?.('-')?.[0] ?? 'en'), locale,
 </script>
 
 <template>
-  <div class="min-h-screen bg-background text-foreground" :class="[themeClass]" :style="themeVars">
+  <div class="min-h-screen bg-background text-foreground">
     <component :is="layout">
       <RouterView />
     </component>

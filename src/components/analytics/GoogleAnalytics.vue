@@ -1,42 +1,40 @@
 <script lang="ts" setup>
 import { config } from '@/config';
-import { configure, useConsent as useGtagConsent } from 'vue-gtag';
+import { addGtag, configure,  consent } from 'vue-gtag';
 import { useConsent } from '@/composable/useConsent';
 import { watch } from 'vue';
+import { isUndefined } from 'lodash';
 
 const { consentState } = useConsent();
-const { acceptCustom } = useGtagConsent();
 const id = config.googleAnalytics.id;
 
-// Initialize Google analytics in manual mode
-const initGoogleAnalytics = () => {
-  if (id) {
+if (id) {
+  const hasConsent = computed(() => {
+    return !isUndefined(consentState.value.analytics) || !isUndefined(consentState.value.marketing);
+  });
+
+  const { stop } = whenever(hasConsent, () => {
     configure({
       tagId: id,
-      initMode: 'manual'
+      config: {
+        ad_storage: consentState.value.analytics ? 'granted' : 'denied',
+        analytics_storage: consentState.value.marketing ? 'granted' : 'denied',
+      },
     });
-  }
-};
-
-// Initialize immediately if ID exists
-initGoogleAnalytics();
-
-// Watch for consent state changes and update Google analytics consent
-watch(
-  () => ({
-    analytics: consentState.value.analytics,
-    marketing: consentState.value.marketing
-  }),
-  ({ analytics, marketing }) => {
-    if (id) {
-      acceptCustom({
-        ad_storage: marketing ? 'granted' : 'denied',
-        analytics_storage: analytics ? 'granted' : 'denied'
-      });
-    }
-  },
-  { immediate: true }
-);
+    stop();
+    addGtag();
+    watch(
+      () => ({
+        analytics: consentState.value.analytics,
+        marketing: consentState.value.marketing,
+      }),
+      ({ analytics, marketing }) => {
+        consent('update', {
+          ad_storage: marketing ? 'granted' : 'denied',
+          analytics_storage: analytics ? 'granted' : 'denied',
+        });
+      },
+    );
+  });
+}
 </script>
-
-

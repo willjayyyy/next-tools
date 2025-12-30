@@ -1,4 +1,4 @@
-import { useStorage } from '@vueuse/core';
+import { StorageSerializers, useStorage } from '@vueuse/core';
 import { computed } from 'vue';
 import { isUndefined } from 'lodash';
 import { config } from '@/config';
@@ -34,6 +34,16 @@ const defaultConsentState: ConsentState = {
   timestamp: 0,
   version: 1,
   expiresAt: 0, // Expired by default, will be set when user consents
+};
+
+const fullyConsentState: ConsentState = {
+  essential: true,
+  analytics: true,
+  marketing: true,
+  preferences: true,
+  timestamp: Infinity,
+  version: defaultConsentState.version,
+  expiresAt: Infinity,
 };
 
 // GDPR country list
@@ -107,11 +117,15 @@ interface CachedRegionData extends RegionApiResponse {
 
 export function useConsent() {
   // Store user consent state, cached for 1 year
-  const rawConsentState = useStorage<ConsentState>('consent-state', defaultConsentState, localStorage);
+  const rawConsentState = useStorage<ConsentState>('consent-state', null, localStorage);
 
   // Handle version checking and migration
   const consentState = computed({
     get: () => {
+      if (regionInfo.value && !regionInfo.value.requiresConsent) {
+        return fullyConsentState;
+      }
+
       const current = rawConsentState.value;
       // Check version, reset if version doesn't match
       if (current.version !== defaultConsentState.version) {
@@ -129,7 +143,9 @@ export function useConsent() {
   });
 
   // Cache region data for 7 days
-  const cachedRegionData = useStorage<CachedRegionData | null>('region-cache', null, localStorage);
+  const cachedRegionData = useStorage<CachedRegionData | null>('region-cache', null, undefined, {
+    serializer: StorageSerializers.object
+  });
 
   // Compute region info from cached data
   const regionInfo = computed<RegionInfo | null>(() => {
@@ -142,7 +158,7 @@ export function useConsent() {
     const requiresConsent = region === 'gdpr' || region === 'ccpa';
 
     return {
-      country: data.countryCode || 'US',
+      country: data.countryCode,
       region,
       requiresConsent,
     };
@@ -218,8 +234,11 @@ export function useConsent() {
 
   // Check if consent modal should be shown
   const needsConsent = computed(() => {
+    if (!regionInfo.value || !regionInfo.value.requiresConsent) {
+      return false
+    }
+
     if (!hasConsented.value) return true;
-    if (!regionInfo.value) return true;
 
     // Check if any currently enabled consent options are missing from stored data
     // This handles the case where new consent options are added in new versions

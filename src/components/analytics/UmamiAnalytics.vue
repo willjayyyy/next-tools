@@ -4,14 +4,14 @@ import Script from '@/components/Script.vue';
 import { useConsent } from '@/composable/useConsent';
 import { computed } from 'vue';
 
-const { consentState, hasConsented } = useConsent();
+const { consentState } = useConsent();
 
 const websiteId = config.umamiAnalytics.websiteId;
 const scriptUrl = config.umamiAnalytics.scriptUrl;
 
 // Only show Umami analytics when user consents
 const showUmami = computed(() => {
-  return websiteId && hasConsented.value && consentState.value.analytics;
+  return websiteId && consentState.value.analytics;
 });
 </script>
 
