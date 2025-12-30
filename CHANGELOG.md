@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.4.0
+
+### Features
+- **analytics**: add support for Vercel, Google Analytics, and Umami analytics with environment-based configuration (acd3338)
+
 ## Version 1.3.4
 
 ### Chores
