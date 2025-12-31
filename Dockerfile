@@ -5,7 +5,7 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 ENV CI=true
 WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm && pnpm i --frozen-lockfile
+RUN npm install -g pnpm && pnpm i --frozen-lockfile --include-workspace-root
 COPY . .
 RUN pnpm build
 

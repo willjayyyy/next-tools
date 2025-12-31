@@ -115,7 +115,6 @@
     "vue-router": "^4.6.3",
     "vue-shadow-dom": "^4.2.0",
     "vue-sonner": "^2.0.9",
-    "vue-tsc": "^3.1.7",
     "vuedraggable": "^4.1.0",
     "xml-formatter": "^3.6.7",
     "yaml": "^2.8.2",
@@ -157,6 +156,7 @@
     "vite-plugin-pwa": "^1.2.0",
     "vite-svg-loader": "^5.1.0",
     "vitest": "^4.0.15",
+    "vue-tsc": "^3.1.7",
     "workbox-window": "^7.4.0",
     "zx": "^8.8.5"
   }
