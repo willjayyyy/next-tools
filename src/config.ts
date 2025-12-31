@@ -57,8 +57,14 @@ export const config = defineConfig(
       enabled: {
         doc: 'Enable cookie consent management system',
         schema: z.coerce.boolean(),
-        default: true,
-        env: 'VITE_ENABLE_CONSENT',
+        default: false,
+        env: 'VITE_CONSENT_ENABLE',
+      },
+      strict: {
+        doc: 'Enable strict consent mode - requires user consent regardless of region',
+        schema: z.coerce.boolean(),
+        default: false,
+        env: 'VITE_CONSENT_STRICT',
       },
     },
   },

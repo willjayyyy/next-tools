@@ -1,5 +1,5 @@
 import { StorageSerializers, useStorage } from '@vueuse/core';
-import { computed } from 'vue';
+import { computed, watch, readonly } from 'vue';
 import { isUndefined } from 'lodash';
 import { config } from '@/config';
 
@@ -20,7 +20,6 @@ export type RegionType = 'gdpr' | 'ccpa' | 'other';
 
 // Region detection result
 export interface RegionInfo {
-  country: string;
   region: RegionType;
   requiresConsent: boolean;
 }
@@ -63,12 +62,9 @@ const CONSENT_EXPIRATION_PERIODS = {
   other: 3 * 365 * 24 * 60 * 60 * 1000,   // 3 years for other regions
 } as const;
 
-// Get region type from cached API data
-const getRegionFromCountryData = (data: CachedRegionData): RegionType => {
-  const country = data.countryCode || 'US';
-  const regionCode = data.regionCode;
-
-  if (GDPR_COUNTRIES.includes(country)) {
+// Get region type from country data
+const getRegionFromCountryData = (countryCode: string, regionCode?: string): RegionType => {
+  if (GDPR_COUNTRIES.includes(countryCode)) {
     return 'gdpr';
   }
   if (CCPA_STATES.includes(regionCode || '')) {
@@ -77,91 +73,67 @@ const getRegionFromCountryData = (data: CachedRegionData): RegionType => {
   return 'other';
 };
 
-// Raw API response data structure
-interface RegionApiResponse {
-  asn: string;
-  city: string;
-  continentCode: string;
-  country: string;
-  countryArea: number;
-  countryCallingCode: string;
-  countryCapital: string;
-  countryCode: string;
-  countryCodeIso3: string;
-  countryName: string;
-  countryPopulation: number;
-  countryTld: string;
-  currency: string;
-  currencyName: string;
-  inEu: boolean;
-  ip: string;
-  languages: string;
-  latitude: number;
-  longitude: number;
-  network: string;
-  org: string;
-  postal: string | null;
-  region: string;
-  regionCode: string;
-  timezone: string;
-  utcOffset: string;
-  version: string;
-}
-
-// Region cache with expiration (extends API response with cache metadata)
-interface CachedRegionData extends RegionApiResponse {
-  // Cache metadata
+// Cached region consent requirement (only stores whether consent is required, not user location data)
+interface CachedRegionConsent extends RegionInfo {
   cachedAt: number;
   expiresAt: number;
 }
 
 export function useConsent() {
   // Store user consent state, cached for 1 year
-  const rawConsentState = useStorage<ConsentState>('consent-state', null, localStorage);
+  const rawConsentState = useStorage<ConsentState>('consent-state', null, localStorage, {
+    serializer: StorageSerializers.object
+  });
+
+  // Cache only the consent requirement, not user location data for privacy
+  const cachedRegionConsent = useStorage<CachedRegionConsent | null>('region-consent', null, localStorage, {
+    serializer: StorageSerializers.object
+  });
+
+  if (cachedRegionConsent.value && cachedRegionConsent.value.expiresAt < Date.now()) {
+    cachedRegionConsent.value = null
+  }
+
+  // Compute region info from cached consent requirement
+  const regionInfo = computed<RegionInfo | null>(() => {
+    if (!cachedRegionConsent.value) {
+      return null;
+    }
+
+    return {
+      region: cachedRegionConsent.value.region,
+      requiresConsent: cachedRegionConsent.value.requiresConsent,
+    };
+  });
+
+  // Check version, reset if version doesn't match
+  if (rawConsentState.value && rawConsentState.value.version !== defaultConsentState.version) {
+    rawConsentState.value = null;
+  }
+  // Check expiration, reset if expired
+  if (rawConsentState.value && rawConsentState.value.expiresAt && rawConsentState.value.expiresAt < Date.now()) {
+    rawConsentState.value = null;
+  }
 
   // Handle version checking and migration
   const consentState = computed({
     get: () => {
-      if (regionInfo.value && !regionInfo.value.requiresConsent) {
+      // In strict mode, always require consent; otherwise check region requirement
+      const requiresConsent = config.consent.strict || regionInfo.value?.requiresConsent;
+      if (regionInfo.value && !requiresConsent) {
         return fullyConsentState;
       }
 
       const current = rawConsentState.value;
-      // Check version, reset if version doesn't match
-      if (current.version !== defaultConsentState.version) {
+      if (!current) {
         return defaultConsentState;
       }
-      // Check expiration, reset if expired
-      if (current.expiresAt && current.expiresAt < Date.now()) {
-        return defaultConsentState;
-      }
+      
       return current;
     },
     set: (value) => {
       rawConsentState.value = value;
     },
-  });
-
-  // Cache region data for 7 days
-  const cachedRegionData = useStorage<CachedRegionData | null>('region-cache', null, undefined, {
-    serializer: StorageSerializers.object
-  });
-
-  // Compute region info from cached data
-  const regionInfo = computed<RegionInfo | null>(() => {
-    if (!cachedRegionData.value || cachedRegionData.value.expiresAt < Date.now()) {
-      return null;
-    }
-
-    const data = cachedRegionData.value;
-    const region = getRegionFromCountryData(data);
-    const requiresConsent = region === 'gdpr' || region === 'ccpa';
-
-    return {
-      country: data.countryCode,
-      region,
-      requiresConsent,
-    };
   });
 
   const detectRegion = async (): Promise<RegionInfo> => {
@@ -175,41 +147,23 @@ export function useConsent() {
       const response = await fetch('https://ipapi.co/json/');
       const data = await response.json();
 
-      // Convert API response to camelCase and cache
+      const countryCode = data.country_code || 'US';
+      const regionCode = data.region_code;
+
+      // Calculate region type and consent requirement
+      const region = getRegionFromCountryData(countryCode, regionCode);
+      const requiresConsent = region === 'gdpr' || region === 'ccpa';
+
+      // Only cache the consent requirement, not user location data
       const now = Date.now();
-      cachedRegionData.value = {
-        asn: data.asn,
-        city: data.city,
-        continentCode: data.continent_code,
-        country: data.country,
-        countryArea: data.country_area,
-        countryCallingCode: data.country_calling_code,
-        countryCapital: data.country_capital,
-        countryCode: data.country_code,
-        countryCodeIso3: data.country_code_iso3,
-        countryName: data.country_name,
-        countryPopulation: data.country_population,
-        countryTld: data.country_tld,
-        currency: data.currency,
-        currencyName: data.currency_name,
-        inEu: data.in_eu,
-        ip: data.ip,
-        languages: data.languages,
-        latitude: data.latitude,
-        longitude: data.longitude,
-        network: data.network,
-        org: data.org,
-        postal: data.postal,
-        region: data.region,
-        regionCode: data.region_code,
-        timezone: data.timezone,
-        utcOffset: data.utc_offset,
-        version: data.version,
+      cachedRegionConsent.value = {
+        requiresConsent,
+        region,
         cachedAt: now,
         expiresAt: now + (7 * 24 * 60 * 60 * 1000), // 7 days
       };
 
-      // Return computed region info
+      // Return region info
       return regionInfo.value!;
     } catch (error) {
       console.warn('Failed to detect region:', error);
@@ -232,10 +186,35 @@ export function useConsent() {
     showPreferences: false, // Currently disabled - can be enabled in future versions
   }));
 
+  // Check if consent feature is enabled
+  const hasConsentEnabled = computed(() => {
+    return config.consent.enabled && Object.values(consentConfig.value).some(value => value);
+  });
+
+  const handleDetectRegion = (enabled: boolean) => {
+    if (enabled) {
+      detectRegion().catch((error) => {
+        console.warn('Auto region detection failed:', error);
+      });
+      stopWatch();
+    }
+  }
+
+  // Auto-detect region when consent is enabled and no cached data
+  const { stop: stopWatch } = watch(hasConsentEnabled, handleDetectRegion);
+
+  handleDetectRegion(hasConsentEnabled.value)
+
   // Check if consent modal should be shown
   const needsConsent = computed(() => {
-    if (!regionInfo.value || !regionInfo.value.requiresConsent) {
-      return false
+    if (!regionInfo.value) {
+      return false;
+    }
+
+    // In strict mode, always require consent; otherwise check region requirement
+    const requiresConsent = config.consent.strict || regionInfo.value.requiresConsent;
+    if (!requiresConsent) {
+      return false;
     }
 
     if (!hasConsented.value) return true;
@@ -246,8 +225,8 @@ export function useConsent() {
     if (consentConfig.value.showAnalytics && isUndefined(current.analytics)) return true;
     if (consentConfig.value.showMarketing && isUndefined(current.marketing)) return true;
     if (consentConfig.value.showPreferences && isUndefined(current.preferences)) return true;
-
-    return regionInfo.value.requiresConsent;
+    
+    return false;
   });
 
 
@@ -317,14 +296,18 @@ export function useConsent() {
   // Reset consent state
   const resetConsent = () => {
     rawConsentState.value = { ...defaultConsentState };
-    cachedRegionData.value = null;
+    cachedRegionConsent.value = null;
   };
 
+  // Readonly consent state for external use
+  const readonlyConsentState = computed(() => readonly(consentState.value));
+
   return {
-    consentState,
+    consentState: readonlyConsentState,
     regionInfo,
     hasConsented,
     needsConsent,
+    hasConsentEnabled,
     detectRegion,
     updateConsent,
     acceptAll,
