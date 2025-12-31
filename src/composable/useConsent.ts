@@ -191,7 +191,12 @@ export function useConsent() {
     return config.consent.enabled && Object.values(consentConfig.value).some(value => value);
   });
 
-  const handleDetectRegion = (enabled: boolean) => {
+
+
+  // Auto-detect region when consent is enabled and no cached data
+  const { stop: stopWatch } = watch(hasConsentEnabled, handleDetectRegion);
+
+  function handleDetectRegion(enabled: boolean) {
     if (enabled) {
       detectRegion().catch((error) => {
         console.warn('Auto region detection failed:', error);
@@ -199,9 +204,6 @@ export function useConsent() {
       stopWatch();
     }
   }
-
-  // Auto-detect region when consent is enabled and no cached data
-  const { stop: stopWatch } = watch(hasConsentEnabled, handleDetectRegion);
 
   handleDetectRegion(hasConsentEnabled.value)
 
