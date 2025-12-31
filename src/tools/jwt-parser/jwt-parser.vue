@@ -39,7 +39,7 @@ const validation = useValidation({
   ]),
 });
 
-const { copy } = useCopy({ text: computed(() => t('common.copied', 'Copied!')) });
+const { copy } = useCopy();
 
 function clearInput() {
   rawJwt.value = '';

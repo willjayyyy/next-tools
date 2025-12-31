@@ -116,7 +116,6 @@ function refreshEntropy() {
 
 const { copy: copyPassphrase } = useCopy({
   source: passphrase,
-  text: computed(() => t('common.copied', 'Copied!')),
 })
 
 const languageOptions = computed(() => Object.keys(languages).map(key => ({

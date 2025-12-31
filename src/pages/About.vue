@@ -68,8 +68,8 @@ useHead({
     </div>
 
     <!-- Main Content -->
-    <div class="container mx-auto px-4 pb-16">
-      <div class="max-w-4xl mx-auto space-y-12">
+    <div class="container mx-auto px-4 pb-4">
+      <div class="max-w-4xl mx-auto space-y-4">
         <!-- About Content Card -->
         <Card>
           <CardHeader>

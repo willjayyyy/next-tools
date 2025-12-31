@@ -44,7 +44,7 @@ const [ulids, refreshUlids] = computedRefreshable(() => {
   return ids.join('\n');
 })
 
-const { copy } = useCopy({ source: ulids, text: computed(() => t('common.copied', 'Copied!')) });
+const { copy } = useCopy({ source: ulids });
 </script>
 
 <template>

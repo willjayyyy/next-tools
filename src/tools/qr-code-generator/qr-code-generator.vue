@@ -75,7 +75,7 @@ const { qrcode } = useQRCode({
 })
 
 const { download } = useDownloadFileFromBase64({ source: qrcode, filename: 'qr-code.png' })
-const { copy: copyText } = useCopy({ source: text, text: computed(() => t('common.copied', 'Copied!')) })
+const { copy: copyText } = useCopy({ source: text })
 
 function clearText() {
   text.value = ''

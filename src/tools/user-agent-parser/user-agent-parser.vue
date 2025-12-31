@@ -19,7 +19,6 @@ const ua = ref(currentBrowserUa)
 
 const { copy: copyUa } = useCopy({
   source: ua,
-  text: computed(() => t('tools.user-agent-parser.copiedUa', 'User agent copied')),
 })
 
 // If not input in the ua field is present return an empty object of type UAParser.IResult because otherwise

@@ -12,7 +12,7 @@ import { getStringSizeInBytes } from './text-statistics.service'
 const { t } = useToolI18n();
 const text = ref('');
 
-const { copy } = useCopy({ source: text, text: computed(() => t('common.copied', 'Copied!')) });
+const { copy } = useCopy({ source: text });
 
 const charCount = computed(() => text.value.length);
 const wordCount = computed(() => (text.value.trim() === '' ? 0 : text.value.trim().split(/\s+/).length));

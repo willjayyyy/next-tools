@@ -51,8 +51,6 @@ const output = computed(() => {
 
 const { copy, isJustCopied } = useCopy({
   source: computed(() => output.value),
-  createToast: true,
-  text: computed(() => t('common.copied', 'Copied!')),
 })
 const tooltipText = computed(() =>
   isJustCopied.value

@@ -40,8 +40,8 @@ const rightValidation = useValidation({
   ]),
 });
 
-const { copy: copyLeft } = useCopy({ source: rawLeftJson, text: computed(() => t('common.copied', 'Copied!')) });
-const { copy: copyRight } = useCopy({ source: rawRightJson, text: computed(() => t('common.copied', 'Copied!')) });
+const { copy: copyLeft } = useCopy({ source: rawLeftJson });
+const { copy: copyRight } = useCopy({ source: rawRightJson });
 
 function clearLeft() {
   rawLeftJson.value = '';

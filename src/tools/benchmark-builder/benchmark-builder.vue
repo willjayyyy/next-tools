@@ -62,7 +62,7 @@ const results = computed(() => {
     });
 })
 
-const { copy } = useCopy({ createToast: true })
+const { copy } = useCopy()
 
 const header = computed(() => ({
   position: t('tools.benchmark-builder.header.position'),

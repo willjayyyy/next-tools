@@ -34,8 +34,6 @@ const value = useVModel(props, 'value', emit);
 const { t } = useI18n();
 const { copy, isJustCopied } = useCopy({
   source: value,
-  createToast: true,
-  text: computed(() => t('common.copied', 'Copied!')),
 });
 const tooltipText = computed(() =>
   isJustCopied.value

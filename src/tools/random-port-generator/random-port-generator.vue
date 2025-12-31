@@ -12,7 +12,7 @@ import { generatePort } from './random-port-generator.model'
 const [port, refreshPort] = computedRefreshable(() => String(generatePort()));
 
 const { t } = useToolI18n();
-const { copy } = useCopy({ source: port, text: computed(() => t('common.copied', 'Copied!')) });
+const { copy } = useCopy({ source: port });
 
 const portNumber = computed(() => Number(port.value));
 const portCategory = computed<'registered' | 'dynamic'>(() =>

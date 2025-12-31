@@ -42,7 +42,7 @@ hljs.registerLanguage('markdown', markdownHljs)
 
 const { value, language, copyPlacement, copyMessage } = toRefs(props)
 
-const { copy } = useCopy({ source: value, text: computed(() => copyMessage.value ?? t('common.copied', 'Copied!')) })
+const { copy } = useCopy({ source: value, text: copyMessage })
 const tooltipText = computed(() =>
   t('common.copyToClipboard', 'Copy to clipboard'),
 )

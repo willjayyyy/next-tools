@@ -34,8 +34,8 @@ const decodedResult = computed(() => {
   }
 });
 
-const { copy: copyInput } = useCopy({ source: inputSafeLinkUrl, text: computed(() => t('common.copied', 'Copied!')) });
-const { copy: copyOutput } = useCopy({ source: computed(() => decodedResult.value.url), text: computed(() => t('common.copied', 'Copied!')) });
+const { copy: copyInput } = useCopy({ source: inputSafeLinkUrl });
+const { copy: copyOutput } = useCopy({ source: computed(() => decodedResult.value.url) });
 
 function clearInput() {
   inputSafeLinkUrl.value = '';

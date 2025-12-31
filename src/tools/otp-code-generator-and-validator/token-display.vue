@@ -8,9 +8,9 @@ const props = defineProps<{ tokens: { previous: string, current: string, next: s
 const { tokens } = toRefs(props)
 const { t } = useToolI18n()
 
-const { copy: copyPrevious, isJustCopied: previousCopied } = useCopy({ createToast: false })
-const { copy: copyCurrent, isJustCopied: currentCopied } = useCopy({ createToast: false })
-const { copy: copyNext, isJustCopied: nextCopied } = useCopy({ createToast: false })
+const { copy: copyPrevious, isJustCopied: previousCopied } = useCopy()
+const { copy: copyCurrent, isJustCopied: currentCopied } = useCopy()
+const { copy: copyNext, isJustCopied: nextCopied } = useCopy()
 </script>
 
 <template>

@@ -75,7 +75,6 @@ const cronString = computed(() => {
 
 const { copy: copyCron } = useCopy({
   source: cron,
-  text: computed(() => t('tools.crontab-generator.copied', 'Copied!')),
 })
 
 const cronPresetOpen = ref(false)

@@ -55,8 +55,8 @@ const bitsArray = computed({
 const publicKey = computed(() => certs.value.publicKeyPem);
 const privateKey = computed(() => certs.value.privateKeyPem);
 
-const { copy: copyPublic } = useCopy({ source: publicKey, text: computed(() => t('common.copied', 'Copied!')) });
-const { copy: copyPrivate } = useCopy({ source: privateKey, text: computed(() => t('common.copied', 'Copied!')) });
+const { copy: copyPublic } = useCopy({ source: publicKey });
+const { copy: copyPrivate } = useCopy({ source: privateKey });
 
 const publicLength = computed(() => publicKey.value.length);
 const privateLength = computed(() => privateKey.value.length);

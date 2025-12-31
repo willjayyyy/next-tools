@@ -40,7 +40,6 @@ const [token, refreshToken] = computedRefreshable(() =>
 
 const { copy } = useCopy({
   source: token,
-  text: computed(() => t('common.copied', 'Copied!')),
 });
 
 const hasValidOptions = computed(() =>

@@ -60,7 +60,7 @@ const [uuids, refreshUUIDs] = computedRefreshable(() => withDefaultOnError(() =>
     return generator(index)
   }).join('\n'), ''))
 
-const { copy } = useCopy({ source: uuids, text: computed(() => t('tools.uuid-generator.copied')) })
+const { copy } = useCopy({ source: uuids })
 
 const namespacePresets = [
   { label: 'DNS', value: '6ba7b810-9dad-11d1-80b4-00c04fd430c8' },
