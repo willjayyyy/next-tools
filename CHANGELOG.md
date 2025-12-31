@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.5.3
+
+### Documentation
+-  add logo to README files and update locales (5cead98)
+
+### Style
+-  adjust About page title styling (7042498)
+
 ## Version 1.5.2
 
 ### Features
