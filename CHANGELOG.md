@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.5.2
+
+### Features
+- **consent**: add strict mode and improve privacy by removing location caching (89a9b9e)
+
+### Documentation
+-  add privacy consent management documentation for all languages (e22d9d8)
+
 ## Version 1.5.1
 
 ### Features
