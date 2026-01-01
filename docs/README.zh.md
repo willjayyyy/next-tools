@@ -133,7 +133,18 @@ pnpm lint
 pnpm run script:create:tool my-tool-name
 ```
 
-这将在 `src/tools/my-tool-name/` 目录中生成基础文件。
+这将在 `src/tools/my-tool-name/` 目录中生成基础文件。它会在 `src/tools` 中创建一个目录，包含正确的文件，并在 `src/tools/index.ts` 中添加导入。你只需要将导入的工具添加到适当的分类中并开发该工具。
+
+### TypeScript 中 `.vue` 导入的类型支持
+
+TypeScript 默认无法处理 `.vue` 导入的类型信息，因此我们使用 `vue-tsc` 替代 `tsc` CLI 进行类型检查。在编辑器中，我们需要 [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) 来让 TypeScript 语言服务识别 `.vue` 类型。
+
+如果你觉得独立的 TypeScript 插件不够快，Volar 还实现了一个性能更好的 [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669)。你可以通过以下步骤启用它：
+
+1. 禁用内置的 TypeScript 扩展
+   1. 从 VSCode 的命令面板运行 `Extensions: Show Built-in Extensions`
+   2. 找到 `TypeScript and JavaScript Language Features`，右键选择 `Disable (Workspace)`
+2. 通过命令面板运行 `Developer: Reload Window` 重新加载 VSCode 窗口。
 
 ## 🌍 国际化
 
@@ -192,6 +203,12 @@ VITE_CONSENT_ENABLE=true
 # 启用严格模式 - 要求所有用户都必须确认同意，无论其所在地区
 VITE_CONSENT_STRICT=false
 ```
+
+## 🗺️ 路线图与功能请求
+
+查看 [issues](https://github.com/willjayyyy/next-tools/issues) 了解计划中的功能和即将推出的工具。
+
+有新工具的想法？[提交功能请求](https://github.com/willjayyyy/next-tools/issues/new/choose)！
 
 ## 📄 许可证
 

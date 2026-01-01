@@ -133,7 +133,18 @@ Criar uma nova ferramenta com nosso gerador:
 pnpm run script:create:tool my-tool-name
 ```
 
-Isso gerará os arquivos base em `src/tools/my-tool-name/`.
+Isso gerará os arquivos base em `src/tools/my-tool-name/`. Criará um diretório em `src/tools` com os arquivos corretos e adicionará a importação em `src/tools/index.ts`. Você só precisará adicionar a ferramenta importada na categoria apropriada e desenvolver a ferramenta.
+
+### Suporte de tipo para importações `.vue` em TS
+
+TypeScript não pode lidar com informações de tipo para importações `.vue` por padrão, então substituímos o CLI `tsc` por `vue-tsc` para verificação de tipo. Nos editores, precisamos do [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) para que o serviço de linguagem TypeScript reconheça os tipos `.vue`.
+
+Se o plugin TypeScript independente não parecer rápido o suficiente para você, o Volar também implementou um [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) mais eficiente. Você pode habilitá-lo seguindo estes passos:
+
+1. Desabilitar a extensão TypeScript integrada
+   1. Execute `Extensions: Show Built-in Extensions` na paleta de comandos do VSCode
+   2. Encontre `TypeScript and JavaScript Language Features`, clique com o botão direito e selecione `Disable (Workspace)`
+2. Recarregue a janela do VSCode executando `Developer: Reload Window` na paleta de comandos.
 
 ## 🌍 Internacionalização
 
@@ -193,9 +204,15 @@ VITE_CONSENT_ENABLE=true
 VITE_CONSENT_STRICT=false
 ```
 
+## 🗺️ Roteiro e solicitações de recursos
+
+Confira os [issues](https://github.com/willjayyyy/next-tools/issues) para ver os recursos planejados e as ferramentas futuras.
+
+Tem uma ideia para uma ferramenta? [Envie uma solicitação de recurso](https://github.com/willjayyyy/next-tools/issues/new/choose)!
+
 ## 📄 Licença
 
-Este projeto está sob a [Licença Pública Geral GNU v3.0](LICENSE).
+Este projeto está sob a [GNU General Public License v3.0](LICENSE).
 
 ## 🙏 Agradecimentos
 

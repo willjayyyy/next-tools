@@ -133,7 +133,18 @@ Opprett et nytt verktøy med generatoren vår:
 pnpm run script:create:tool my-tool-name
 ```
 
-Dette vil generere basisfiler i `src/tools/my-tool-name/`.
+Dette vil generere basisfiler i `src/tools/my-tool-name/`. Det vil opprette en katalog i `src/tools` med de riktige filene og legge til importen i `src/tools/index.ts`. Du trenger bare å legge til det importerte verktøyet i riktig kategori og utvikle verktøyet.
+
+### Typestøtte for `.vue` importer i TS
+
+TypeScript kan ikke håndtere typeinformasjon for `.vue` importer som standard, så vi erstatter `tsc` CLI med `vue-tsc` for typesjekking. I editorer trenger vi [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) for å gjøre TypeScript-språktjenesten klar over `.vue` typer.
+
+Hvis den frittstående TypeScript-pluginen ikke føles rask nok for deg, har Volar også implementert en mer effektiv [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669). Du kan aktivere den ved å følge disse trinnene:
+
+1. Deaktiver den innebygde TypeScript-utvidelsen
+   1. Kjør `Extensions: Show Built-in Extensions` fra VSCode sin kommandopalett
+   2. Finn `TypeScript and JavaScript Language Features`, høyreklikk og velg `Disable (Workspace)`
+2. Last inn VSCode-vinduet på nytt ved å kjøre `Developer: Reload Window` fra kommandopaletten.
 
 ## 🌍 Internasjonalisering
 
@@ -192,6 +203,12 @@ VITE_CONSENT_ENABLE=true
 # Aktiver streng modus - krev samtykke fra alle brukere uavhengig av region
 VITE_CONSENT_STRICT=false
 ```
+
+## 🗺️ Veikart og funksjonsforespørsler
+
+Sjekk [issues](https://github.com/willjayyyy/next-tools/issues) for å se planlagte funksjoner og kommende verktøy.
+
+Har du en idé til et verktøy? [Send inn en funksjonsforespørsel](https://github.com/willjayyyy/next-tools/issues/new/choose)!
 
 ## 📄 Lisens
 

@@ -133,7 +133,18 @@ Tạo công cụ mới với bộ tạo của chúng tôi:
 pnpm run script:create:tool my-tool-name
 ```
 
-Điều này sẽ tạo ra các tệp cơ bản trong `src/tools/my-tool-name/`.
+Điều này sẽ tạo ra các tệp cơ bản trong `src/tools/my-tool-name/`. Nó sẽ tạo một thư mục trong `src/tools` với các tệp chính xác và thêm import vào `src/tools/index.ts`. Bạn chỉ cần thêm công cụ đã import vào danh mục thích hợp và phát triển công cụ.
+
+### Hỗ trợ kiểu cho import `.vue` trong TS
+
+TypeScript không thể xử lý thông tin kiểu cho import `.vue` theo mặc định, vì vậy chúng tôi thay thế CLI `tsc` bằng `vue-tsc` để kiểm tra kiểu. Trong các trình soạn thảo, chúng ta cần [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) để dịch vụ ngôn ngữ TypeScript nhận biết các kiểu `.vue`.
+
+Nếu plugin TypeScript độc lập không đủ nhanh đối với bạn, Volar cũng đã triển khai [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) hiệu suất cao hơn. Bạn có thể kích hoạt nó bằng các bước sau:
+
+1. Vô hiệu hóa Extension TypeScript tích hợp
+   1. Chạy `Extensions: Show Built-in Extensions` từ bảng lệnh của VSCode
+   2. Tìm `TypeScript and JavaScript Language Features`, nhấp chuột phải và chọn `Disable (Workspace)`
+2. Tải lại cửa sổ VSCode bằng cách chạy `Developer: Reload Window` từ bảng lệnh.
 
 ## 🌍 Quốc tế hóa
 
@@ -193,9 +204,15 @@ VITE_CONSENT_ENABLE=true
 VITE_CONSENT_STRICT=false
 ```
 
+## 🗺️ Lộ trình và yêu cầu tính năng
+
+Kiểm tra [issues](https://github.com/willjayyyy/next-tools/issues) để xem các tính năng đã lên kế hoạch và công cụ sắp tới.
+
+Có ý tưởng về một công cụ? [Gửi yêu cầu tính năng](https://github.com/willjayyyy/next-tools/issues/new/choose)!
+
 ## 📄 Giấy phép
 
-Dự án này được cấp phép theo [Giấy phép Công cộng GNU v3.0](LICENSE).
+Dự án này được cấp phép theo [GNU General Public License v3.0](LICENSE).
 
 ## 🙏 Lời cảm ơn
 

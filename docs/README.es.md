@@ -133,7 +133,18 @@ Crear una nueva herramienta con nuestro generador:
 pnpm run script:create:tool my-tool-name
 ```
 
-Esto generará los archivos base en `src/tools/my-tool-name/`.
+Esto generará los archivos base en `src/tools/my-tool-name/`. Creará un directorio en `src/tools` con los archivos correctos y agregará la importación en `src/tools/index.ts`. Solo necesitarás agregar la herramienta importada en la categoría apropiada y desarrollar la herramienta.
+
+### Soporte de tipos para importaciones `.vue` en TS
+
+TypeScript no puede manejar información de tipos para importaciones `.vue` por defecto, por lo que reemplazamos el CLI `tsc` con `vue-tsc` para la verificación de tipos. En los editores, necesitamos [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) para que el servicio de lenguaje TypeScript reconozca los tipos `.vue`.
+
+Si el plugin TypeScript independiente no te parece lo suficientemente rápido, Volar también ha implementado un [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) más eficiente. Puedes habilitarlo siguiendo estos pasos:
+
+1. Deshabilitar la extensión TypeScript integrada
+   1. Ejecuta `Extensions: Show Built-in Extensions` desde la paleta de comandos de VSCode
+   2. Encuentra `TypeScript and JavaScript Language Features`, haz clic derecho y selecciona `Disable (Workspace)`
+2. Recarga la ventana de VSCode ejecutando `Developer: Reload Window` desde la paleta de comandos.
 
 ## 🌍 Internacionalización
 
@@ -193,9 +204,15 @@ VITE_CONSENT_ENABLE=true
 VITE_CONSENT_STRICT=false
 ```
 
+## 🗺️ Hoja de ruta y solicitudes de funciones
+
+Consulta los [issues](https://github.com/willjayyyy/next-tools/issues) para ver las funciones planificadas y las herramientas próximas.
+
+¿Tienes una idea para una herramienta? [¡Envía una solicitud de función](https://github.com/willjayyyy/next-tools/issues/new/choose)!
+
 ## 📄 Licencia
 
-Este proyecto está bajo la [Licencia Pública General GNU v3.0](LICENSE).
+Este proyecto está bajo la [GNU General Public License v3.0](LICENSE).
 
 ## 🙏 Agradecimientos
 

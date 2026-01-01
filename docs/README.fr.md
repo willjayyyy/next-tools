@@ -133,7 +133,18 @@ Créer un nouvel outil avec notre générateur :
 pnpm run script:create:tool my-tool-name
 ```
 
-Ceci générera les fichiers de base dans `src/tools/my-tool-name/`.
+Ceci générera les fichiers de base dans `src/tools/my-tool-name/`. Il créera un répertoire dans `src/tools` avec les fichiers corrects, et ajoutera l'import dans `src/tools/index.ts`. Vous devrez simplement ajouter l'outil importé dans la catégorie appropriée et développer l'outil.
+
+### Support de type pour les imports `.vue` en TS
+
+TypeScript ne peut pas gérer les informations de type pour les imports `.vue` par défaut, nous remplaçons donc le CLI `tsc` par `vue-tsc` pour la vérification de type. Dans les éditeurs, nous avons besoin du [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) pour que le service de langage TypeScript reconnaisse les types `.vue`.
+
+Si le plugin TypeScript autonome ne vous semble pas assez rapide, Volar a également implémenté un [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) plus performant. Vous pouvez l'activer en suivant ces étapes :
+
+1. Désactiver l'extension TypeScript intégrée
+   1. Exécutez `Extensions: Show Built-in Extensions` depuis la palette de commandes de VSCode
+   2. Trouvez `TypeScript and JavaScript Language Features`, faites un clic droit et sélectionnez `Disable (Workspace)`
+2. Rechargez la fenêtre VSCode en exécutant `Developer: Reload Window` depuis la palette de commandes.
 
 ## 🌍 Internationalisation
 
@@ -150,8 +161,6 @@ Next-Tools prend en charge 10 langues :
 - 🇻🇳 Tiếng Việt (vi)
 
 Pour contribuer aux traductions, modifiez les fichiers JSON dans le répertoire `locales/`.
-
-## 📄 Licence
 
 ## 📊 Intégration Analytics
 
@@ -194,6 +203,14 @@ VITE_CONSENT_ENABLE=true
 # Activer le mode strict - exiger le consentement de tous les utilisateurs quelle que soit leur région
 VITE_CONSENT_STRICT=false
 ```
+
+## 🗺️ Feuille de route et demandes de fonctionnalités
+
+Consultez les [issues](https://github.com/willjayyyy/next-tools/issues) pour voir les fonctionnalités prévues et les outils à venir.
+
+Vous avez une idée d'outil ? [Soumettez une demande de fonctionnalité](https://github.com/willjayyyy/next-tools/issues/new/choose) !
+
+## 📄 Licence
 
 Ce projet est sous licence [GNU General Public License v3.0](LICENSE).
 
