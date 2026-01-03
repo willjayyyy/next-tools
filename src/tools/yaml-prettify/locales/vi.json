@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "YAML được cung cấp không hợp lệ.",
       "cardOptionsTitle": "Tùy chọn định dạng",
       "cardOptionsDescription": "Điều chỉnh thụt lề và cách sắp xếp khóa để phù hợp với kiểu YAML ưa thích của bạn.",

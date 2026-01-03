@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "提供的 YAML 无效。",
       "cardOptionsTitle": "格式化选项",
       "cardOptionsDescription": "调整缩进和键排序行为，使其符合你偏好的 YAML 风格。",

@@ -7,17 +7,7 @@ export const tool = defineTool({
   name: computed(() => translate('tools.basic-auth-generator.title')),
   path: '/basic-auth-generator',
   description: computed(() => translate('tools.basic-auth-generator.description')),
-  keywords: [
-    'basic',
-    'auth',
-    'generator',
-    'username',
-    'password',
-    'base64',
-    'authentication',
-    'header',
-    'authorization',
-  ],
+  keywords: computed(() => translate('tools.basic-auth-generator.keywords')),
   component: () => import('./basic-auth-generator.vue'),
   icon: PasswordRound,
 });

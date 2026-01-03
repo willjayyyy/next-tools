@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "Bereitgestelltes YAML ist nicht gültig.",
       "cardOptionsTitle": "Formatierungsoptionen",
       "cardOptionsDescription": "Passen Sie Einrückung und Schlüsselsortierung an Ihren bevorzugten YAML-Stil an.",

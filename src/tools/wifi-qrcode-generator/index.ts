@@ -6,7 +6,7 @@ import { defineTool } from '../tool';
 export const tool = defineTool({
   name: computed(() => translate('tools.wifi-qrcode-generator.title')),
   path: '/wifi-qrcode-generator',
-  key: 'wifi-qr-code-generator',
+  key: 'wifi-qrcode-generator',
   description: computed(() => translate('tools.wifi-qrcode-generator.description')),
   keywords: computed(() => translate('tools.wifi-qrcode-generator.keywords')),
   component: () => import('./wifi-qr-code-generator.vue'),

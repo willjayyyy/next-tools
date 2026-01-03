@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "Den oppgitte YAML-en er ikke gyldig.",
       "cardOptionsTitle": "Formateringsalternativer",
       "cardOptionsDescription": "Juster innrykk og nøkkelsortering slik at det passer din foretrukne YAML-stil.",

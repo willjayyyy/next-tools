@@ -6,7 +6,7 @@ import { defineTool } from '../tool';
 export const tool = defineTool({
   name: computed(() => translate('tools.json-prettify.title')),
   path: '/json-prettify',
-  key: 'json-viewer',
+  key: 'json-prettify',
   description: computed(() => translate('tools.json-prettify.description')),
   keywords: computed(() => translate('tools.json-prettify.keywords')),
   component: () => import('./json-viewer.vue'),

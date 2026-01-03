@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "Provided YAML is not valid.",
       "cardOptionsTitle": "Formatting options",
       "cardOptionsDescription": "Tune indentation and key sorting behavior to match your preferred YAML style.",

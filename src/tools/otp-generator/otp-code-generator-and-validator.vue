@@ -12,7 +12,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { computedRefreshable } from '@/composable/computedRefreshable'
 import { useToolI18n } from '@/composable/useToolI18n'
 import { useStyleStore } from '@/stores/style.store'
-import { useQRCode } from '../qr-code-generator/useQRCode'
+import { useQRCode } from '../qrcode-generator/useQRCode'
 import { base32toHex, buildKeyUri, generateSecret, generateTOTP, getCounterFromTime } from './otp.service'
 import TokenDisplay from './token-display.vue'
 

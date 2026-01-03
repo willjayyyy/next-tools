@@ -12,7 +12,7 @@ import { useToolI18n } from '@/composable/useToolI18n'
 import { useValidation } from '@/composable/validation'
 import { cn } from '@/lib/utils'
 import { tableCellClasses, tableContainerClasses, tableHeadClasses, tableHeaderClasses } from '@/utils/table'
-import { convertBase } from '../integer-base-converter/integer-base-converter.model'
+import { convertBase } from '../base-converter/integer-base-converter.model'
 import { ipv4ToInt, ipv4ToIpv6, isValidIpv4 } from './ipv4-address-converter.service'
 
 const rawIpAddress = ref('192.168.1.1');

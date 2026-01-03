@@ -29,32 +29,14 @@ export async function loadToolMessages(toolPath: string, locale: string = 'en') 
     return;
   }
 
-  // 路径到目录名的映射（处理路径和目录名不一致的情况）
-  const pathToDirMap: Record<string, string> = {
-    'qrcode-generator': 'qr-code-generator',
-    'json-prettify': 'json-viewer',
-    'json-viewer': 'json-viewer', // json-viewer 重定向到 json-prettify
-    'base-converter': 'integer-base-converter',
-    'date-converter': 'date-time-converter',
-    'wifi-qrcode-generator': 'wifi-qr-code-generator',
-    'og-meta-generator': 'meta-tag-generator',
-    'otp-generator': 'otp-code-generator-and-validator',
-    'yaml-prettify': 'yaml-viewer',
-  }
-
-  const toolDir = pathToDirMap[toolName] || toolName;
-
   try {
-    // 使用 ?raw 方式动态导入 YAML 文件，然后手动解析
-    // 这样可以避免 vite 的 i18n 插件自动加载导致循环引用
-    // 路径格式: src/tools/{toolDir}/locales/${locale}.yml?raw
-    const content = await import(`@/tools/${toolDir}/locales/${locale}.json`).catch((e) => {
+
+    const content = await import(`@/tools/${toolName}/locales/${locale}.json`).catch((e) => {
       console.error(e);
       return null;
     })
 
     if (content?.default) {
-      // 手动解析 YAML 内容
       const toolMessages = content.default;
 
       // 使用 vue-i18n 的 mergeLocaleMessage 方法合并翻译

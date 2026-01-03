@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "El YAML proporcionado no es válido.",
       "cardOptionsTitle": "Opciones de formato",
       "cardOptionsDescription": "Ajusta la sangría y el orden de las claves para que coincidan con tu estilo preferido de YAML.",

@@ -1,6 +1,6 @@
 {
   "tools": {
-    "yaml-viewer": {
+    "yaml-prettify": {
       "invalid": "Наданий YAML недійсний.",
       "cardOptionsTitle": "Параметри форматування",
       "cardOptionsDescription": "Налаштуйте відступи та сортування ключів відповідно до вашого стилю YAML.",
