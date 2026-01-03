@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'otp-generator',
   description: computed(() => translate('tools.otp-generator.description')),
   keywords: computed(() => translate('tools.otp-generator.keywords')),
-  component: () => import('./otp-code-generator-and-validator.vue'),
+  component: () => import('./otp-generator.vue'),
   icon: DeviceMobile,
 })

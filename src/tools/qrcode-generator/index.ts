@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'qrcode-generator',
   description: computed(() => translate('tools.qrcode-generator.description')),
   keywords: computed(() => translate('tools.qrcode-generator.keywords')),
-  component: () => import('./qr-code-generator.vue'),
+  component: () => import('./qrcode-generator.vue'),
   icon: Qrcode,
 })

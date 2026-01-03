@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'og-meta-generator',
   description: computed(() => translate('tools.og-meta-generator.description')),
   keywords: computed(() => translate('tools.og-meta-generator.keywords')),
-  component: () => import('./meta-tag-generator.vue'),
+  component: () => import('./og-meta-generator.vue'),
   icon: Tags,
 })

@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'date-converter',
   description: computed(() => translate('tools.date-converter.description')),
   keywords: computed(() => translate('tools.date-converter.keywords')),
-  component: () => import('./date-time-converter.vue'),
+  component: () => import('./date-converter.vue'),
   icon: Calendar,
 })

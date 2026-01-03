@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'token-generator',
   description: computed(() => translate('tools.token-generator.description')),
   keywords: computed(() => translate('tools.token-generator.keywords')),
-  component: () => import('./token-generator.tool.vue'),
+  component: () => import('./token-generator.vue'),
   icon: ArrowsShuffle,
 })

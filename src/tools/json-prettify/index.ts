@@ -9,7 +9,7 @@ export const tool = defineTool({
   key: 'json-prettify',
   description: computed(() => translate('tools.json-prettify.description')),
   keywords: computed(() => translate('tools.json-prettify.keywords')),
-  component: () => import('./json-viewer.vue'),
+  component: () => import('./json-prettify.vue'),
   icon: Braces,
   redirectFrom: ['/json-viewer'],
 })

@@ -9,7 +9,7 @@ export const tool = defineTool({
   path: '/yaml-prettify',
   description: computed(() => translate('tools.yaml-prettify.description')),
   keywords: computed(() => translate('tools.yaml-prettify.keywords')),
-  component: () => import('./yaml-viewer.vue'),
+  component: () => import('./yaml-prettify.vue'),
   icon: AlignJustified,
   createdAt: new Date('2024-01-31'),
 })

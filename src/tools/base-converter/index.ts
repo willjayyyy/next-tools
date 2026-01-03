@@ -9,6 +9,6 @@ export const tool = defineTool({
   key: 'base-converter',
   description: computed(() => translate('tools.base-converter.description')),
   keywords: computed(() => translate('tools.base-converter.keywords')),
-  component: () => import('./integer-base-converter.vue'),
+  component: () => import('./base-converter.vue'),
   icon: ArrowsLeftRight,
 })
