@@ -1,7 +1,7 @@
 {
   "name": "next-tools",
   "type": "module",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "packageManager": "pnpm@9.11.0",
   "description": "Collection of handy online tools for developers, with great UX. ",
   "author": "Will Jay",
