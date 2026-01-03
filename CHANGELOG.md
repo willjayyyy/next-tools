@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.6.1
+
+### Features
+-  add theme-aware logo support for light and dark modes (3fe2f04)
+
+### Refactoring
+-  standardize tool component naming (b6a102d)
+-  standardize tool directory and route naming conventions (958d88a)
+-  unify copy success message and support reactive language switching (c38af25)
+
+### Documentation
+-  update README files across all languages (2b2fa15)
+
 ## Version 1.6.0
 
 ### Features
