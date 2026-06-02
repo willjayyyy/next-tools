@@ -50,8 +50,19 @@ const { decodeImage, startCameraScan, stopCameraScan } = useBarcodeScanner()
 const activeTab = useStorage<Tab>('barcode-scanner:active-tab', Tab.Image)
 const currentCamera = useStorage('barcode-scanner:camera-device', '')
 
-const result = ref<ScanResult | null>(null)
-const errorKey = ref('')
+// Image and camera are independent workspaces: each keeps its own result and
+// error key, so switching tabs never shows the other tab's state.
+interface TabState {
+  result: ScanResult | null
+  errorKey: string
+}
+const tabState = reactive<Record<Tab, TabState>>({
+  [Tab.Image]: { result: null, errorKey: '' },
+  [Tab.Camera]: { result: null, errorKey: '' },
+})
+
+const result = computed(() => tabState[activeTab.value].result)
+const errorKey = computed(() => tabState[activeTab.value].errorKey)
 
 // Image-tab state
 const fileInput = ref<HTMLInputElement>()
@@ -107,18 +118,19 @@ const actionLabel = computed(() => {
 
 const resultFormatLabel = computed(() => (result.value ? formatLabel(result.value.format) : ''))
 
-function setResult(scan: ScanResult) {
-  result.value = scan
-  errorKey.value = ''
+function setResult(tab: Tab, scan: ScanResult) {
+  tabState[tab].result = scan
+  tabState[tab].errorKey = ''
 }
 
 // --- Image tab ---
 
 async function handleFile(file: File) {
-  errorKey.value = ''
+  const state = tabState[Tab.Image]
+  state.errorKey = ''
 
   if (!file.type.startsWith('image/')) {
-    errorKey.value = 'errorInvalidFileType'
+    state.errorKey = 'errorInvalidFileType'
     return
   }
 
@@ -129,12 +141,12 @@ async function handleFile(file: File) {
 
   const outcome = await decodeImage(file)
   if (!outcome.ok) {
-    result.value = null
-    errorKey.value = outcome.errorKey
+    state.result = null
+    state.errorKey = outcome.errorKey
     return
   }
 
-  setResult(outcome.result)
+  setResult(Tab.Image, outcome.result)
 }
 
 function onFileInputChange(event: Event) {
@@ -155,7 +167,7 @@ function onDrop(event: DragEvent) {
 // --- Camera tab ---
 
 async function startScan() {
-  errorKey.value = ''
+  tabState[Tab.Camera].errorKey = ''
   permissionCannotBePrompted.value = false
 
   try {
@@ -174,13 +186,13 @@ async function startScan() {
     cameraStatus.value = CameraStatus.Scanning
     await startCameraScan(currentCamera.value || undefined, video.value, (scan) => {
       cameraStatus.value = CameraStatus.Idle
-      setResult(scan)
+      setResult(Tab.Camera, scan)
     })
   }
   catch (error) {
     console.error('Failed to start camera scan:', error)
     cameraStatus.value = CameraStatus.Idle
-    errorKey.value = 'errorCameraFailed'
+    tabState[Tab.Camera].errorKey = 'errorCameraFailed'
   }
 }
 
@@ -190,7 +202,7 @@ function stopScan() {
 }
 
 function rescan() {
-  result.value = null
+  tabState[Tab.Camera].result = null
   startScan()
 }
 
