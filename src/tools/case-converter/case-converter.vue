@@ -1,17 +1,4 @@
 <script setup lang="ts">
-import {
-  camelCase,
-  capitalCase,
-  constantCase,
-  dotCase,
-  kebabCase,
-  noCase,
-  pascalCase,
-  pathCase,
-  sentenceCase,
-  snakeCase,
-  trainCase,
-} from 'change-case';
 import { Grid3X3, Type, X } from 'lucide-vue-next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -20,91 +7,25 @@ import { Field, FieldContent, FieldGroup } from '@/components/ui/field'
 import { Textarea } from '@/components/ui/textarea'
 import { useToolI18n } from '@/composable/useToolI18n'
 import InputCopyable from '../../components/InputCopyable.vue'
+import { CASE_FORMATS } from './case-converter.service'
 
 const { t } = useToolI18n();
 const inputElement = ref<HTMLElement>();
 
 const input = ref('lorem ipsum dolor sit amet');
-const sanitizedInput = computed(() => input.value.replace(/\P{L}+/gu, ''));
 
 const inputLength = computed(() => input.value.length);
-const sanitizedLength = computed(() => sanitizedInput.value.length);
 
-const formats = computed(() => [
-  {
-    label: t('tools.case-converter.lowercase'),
-    value: sanitizedInput.value.toLocaleLowerCase(),
-    category: 'basic',
-  },
-  {
-    label: t('tools.case-converter.uppercase'),
-    value: sanitizedInput.value.toLocaleUpperCase(),
-    category: 'basic',
-  },
-  {
-    label: t('tools.case-converter.camelcase'),
-    value: camelCase(sanitizedInput.value),
-    category: 'programming',
-  },
-  {
-    label: t('tools.case-converter.pascalcase'),
-    value: pascalCase(sanitizedInput.value),
-    category: 'programming',
-  },
-  {
-    label: t('tools.case-converter.snakecase'),
-    value: snakeCase(sanitizedInput.value),
-    category: 'programming',
-  },
-  {
-    label: t('tools.case-converter.paramcase'),
-    value: kebabCase(sanitizedInput.value),
-    category: 'programming',
-  },
-  {
-    label: t('tools.case-converter.constantcase'),
-    value: constantCase(sanitizedInput.value),
-    category: 'programming',
-  },
-  {
-    label: t('tools.case-converter.capitalcase'),
-    value: capitalCase(sanitizedInput.value),
-    category: 'text',
-  },
-  {
-    label: t('tools.case-converter.sentencecase'),
-    value: sentenceCase(sanitizedInput.value),
-    category: 'text',
-  },
-  {
-    label: t('tools.case-converter.headercase'),
-    value: trainCase(sanitizedInput.value),
-    category: 'text',
-  },
-  {
-    label: t('tools.case-converter.nocase'),
-    value: noCase(sanitizedInput.value),
-    category: 'text',
-  },
-  {
-    label: t('tools.case-converter.dotcase'),
-    value: dotCase(sanitizedInput.value),
-    category: 'path',
-  },
-  {
-    label: t('tools.case-converter.pathcase'),
-    value: pathCase(sanitizedInput.value),
-    category: 'path',
-  },
-  {
-    label: t('tools.case-converter.mockingcase'),
-    value: input.value
-      .split('')
-      .map((char, index) => (index % 2 === 0 ? char.toUpperCase() : char.toLowerCase()))
-      .join(''),
-    category: 'special',
-  },
-]);
+// Convert the raw input into every supported format. The service operates on
+// the unmodified string so digits, separators, and punctuation are preserved
+// where the format allows it (see issue #2).
+const formats = computed(() =>
+  CASE_FORMATS.map((format) => ({
+    label: t(`tools.case-converter.${format.key}`),
+    value: format.convert(input.value),
+    category: format.category,
+  })),
+);
 
 function clearInput() {
   input.value = '';
@@ -137,9 +58,6 @@ function clearInput() {
               <div class="flex flex-wrap items-center gap-2">
                 <Badge v-if="inputLength > 0" variant="outline" class="text-xs">
                   {{ t('tools.case-converter.inputLength', 'Length') }}: {{ inputLength }}
-                </Badge>
-                <Badge v-if="sanitizedLength !== inputLength" variant="secondary" class="text-xs">
-                  {{ t('tools.case-converter.sanitizedLength', 'Sanitized') }}: {{ sanitizedLength }}
                 </Badge>
               </div>
               <Textarea
