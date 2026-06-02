@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.10.3
+
+### Bug fixes
+- **barcode-scanner**: keep scan result and error per tab (558b6e3)
+
 ## Version 1.10.2
 
 ### Bug fixes
