@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ScanResult } from './useBarcodeScanner'
-import { useDevicesList, useStorage } from '@vueuse/core'
+import { useDevicesList, useElementSize, useStorage } from '@vueuse/core'
 import {
   AlertCircle,
   Camera,
@@ -60,8 +60,14 @@ const isDragging = ref(false)
 
 // Camera-tab state
 const video = ref<HTMLVideoElement>()
+const previewBox = ref<HTMLElement>()
 const cameraStatus = ref<CameraStatus>(CameraStatus.Idle)
 const permissionCannotBePrompted = ref(false)
+
+// Viewfinder is a square sized to 60% of the preview's smaller side, so it fits
+// whether the box is wider or taller than it is tall.
+const { width: previewWidth, height: previewHeight } = useElementSize(previewBox)
+const finderSize = computed(() => Math.round(Math.min(previewWidth.value, previewHeight.value) * 0.6))
 
 const {
   videoInputs: cameras,
@@ -320,18 +326,24 @@ watch(activeTab, (tab) => {
                 </FieldContent>
               </Field>
 
-              <!-- Live preview -->
               <!--
-                A fixed 16:9 box reserves stable height before the stream arrives,
-                so the layout does not jump when the first frame loads.
+                Reserve a fixed-shape viewport (square on phones, 16:9 on larger
+                screens) and let the video fill it with object-cover. The shape is
+                known before the stream loads, so there is no height jump; cropping
+                is cosmetic since ZXing decodes the full native video frame.
               -->
               <div
-                class="relative aspect-video max-h-120 w-full overflow-hidden rounded-lg border bg-black"
+                ref="previewBox"
+                class="relative aspect-square w-full overflow-hidden rounded-lg border bg-black sm:aspect-video"
                 :class="cameraStatus === CameraStatus.Scanning ? 'block' : 'hidden'"
               >
-                <video ref="video" autoplay muted playsinline class="absolute inset-0 h-full w-full object-contain" />
-                <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-                  <div class="h-48 w-48 rounded-lg border-2 border-primary/70 shadow-[0_0_0_9999px_rgba(0,0,0,0.35)]" />
+                <video ref="video" autoplay muted playsinline class="absolute inset-0 h-full w-full object-cover" />
+                <!-- Viewfinder guide: hidden on small screens where it would crowd the preview. -->
+                <div class="pointer-events-none absolute inset-0 hidden items-center justify-center sm:flex">
+                  <div
+                    class="rounded-lg border-2 border-primary/70 shadow-[0_0_0_9999px_rgba(0,0,0,0.35)]"
+                    :style="{ width: `${finderSize}px`, height: `${finderSize}px` }"
+                  />
                 </div>
                 <Badge variant="destructive" class="absolute left-3 top-3 animate-pulse">
                   {{ t('tools.barcode-scanner.scanning', 'Scanning…') }}
