@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Version 1.9.7
+
+### Bug fixes
+- **case-converter**: preserve all characters when converting case (2ff4332)
+
 ## Version 1.9.6
 
 ### Features
