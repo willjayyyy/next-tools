@@ -207,6 +207,11 @@
       "keywords": "ascii,asciiart,text,zeichner",
       "title": "ASCII-Kunsttextgenerator"
     },
+    "barcode-scanner": {
+      "description": "Scanne und dekodiere QR-Codes und Barcodes aus einem Bild oder mit deiner Kamera – komplett im Browser. Unterstützt QR, Data Matrix, PDF417, Aztec, EAN, UPC, Code 128 und mehr.",
+      "keywords": "qr,code,leser,scanner,barcode,dekodieren,qr reader,qrcode,ean,upc,code128,datamatrix,pdf417,aztec,kamera,scannen",
+      "title": "Barcode- & QR-Scanner"
+    },
     "base-converter": {
       "description": "Konvertiere Zahlen zwischen verschiedenen Basen (Dezimal, Hexadezimal, Binär, Oktal, Base64, ...).",
       "keywords": "ganzzahl,zahl,basis,konvertierung,dezimal,hexadezimal,binär,oktal,base64",

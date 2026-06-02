@@ -207,6 +207,11 @@
       "keywords": "ascii,ascii艺术,文本,绘制器",
       "title": "ASCII 艺术字生成器"
     },
+    "barcode-scanner": {
+      "description": "在浏览器中直接从图片或摄像头扫描并解码二维码和条形码。支持 QR、Data Matrix、PDF417、Aztec、EAN、UPC、Code 128 等多种格式。",
+      "keywords": "二维码,扫描,识别,条码,条形码,解码,qr,reader,scanner,ean,upc,code128,datamatrix,pdf417,aztec,摄像头",
+      "title": "条码与二维码扫描器"
+    },
     "base-converter": {
       "description": "在不同的基数（十进制、十六进制、二进制、八进制、base64…）之间转换数字",
       "keywords": "整数,数字,基数,转换,十进制,十六进制,二进制,八进制,base64",

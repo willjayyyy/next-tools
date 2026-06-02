@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "Call number",
+      "camera": "Camera",
+      "cardTitle": "Barcode & QR Scanner",
+      "decodedContent": "Decoded content",
+      "dropHint": "Scan a QR code or barcode from an image file",
+      "dropTitle": "Drop an image or click to upload",
+      "errorCameraFailed": "Could not start the camera. Please try again.",
+      "errorDecodeFailed": "Could not read the image. Please try another file.",
+      "errorInvalidFileType": "Please select an image file.",
+      "errorNoCodeFound": "No barcode or QR code found in the image.",
+      "notSupported": "Your browser does not support camera access.",
+      "notSupportedTitle": "Not Supported",
+      "openLink": "Open link",
+      "permissionBlocked": "Camera permission was denied. Enable it in your browser settings (usually the lock icon in the address bar).",
+      "permissionBlockedTitle": "Permission Blocked",
+      "resultTitle": "Scan Result",
+      "scanAgain": "Scan another",
+      "scanning": "Scanning…",
+      "sendEmail": "Send email",
+      "startScan": "Start scanning",
+      "stopScan": "Stop",
+      "tabCamera": "Camera",
+      "tabImage": "Image",
+      "unknownCamera": "Camera"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "Ring",
+      "camera": "Kamera",
+      "cardTitle": "Strekkode- og QR-skanner",
+      "decodedContent": "Dekodet innhold",
+      "dropHint": "Skann en QR-kode eller strekkode fra en bildefil",
+      "dropTitle": "Slipp et bilde eller klikk for å laste opp",
+      "errorCameraFailed": "Kunne ikke starte kameraet. Prøv igjen.",
+      "errorDecodeFailed": "Kunne ikke lese bildet. Prøv en annen fil.",
+      "errorInvalidFileType": "Velg en bildefil.",
+      "errorNoCodeFound": "Ingen strekkode eller QR-kode funnet i bildet.",
+      "notSupported": "Nettleseren din støtter ikke kameratilgang.",
+      "notSupportedTitle": "Ikke støttet",
+      "openLink": "Åpne lenke",
+      "permissionBlocked": "Kameratilgang ble nektet. Aktiver den i nettleserinnstillingene (vanligvis via hengelås-ikonet i adresselinjen).",
+      "permissionBlockedTitle": "Tillatelse blokkert",
+      "resultTitle": "Skanneresultat",
+      "scanAgain": "Skann en til",
+      "scanning": "Skanner…",
+      "sendEmail": "Send e-post",
+      "startScan": "Start skanning",
+      "stopScan": "Stopp",
+      "tabCamera": "Kamera",
+      "tabImage": "Bilde",
+      "unknownCamera": "Kamera"
+    }
+  }
+}

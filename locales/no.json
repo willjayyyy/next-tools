@@ -207,6 +207,11 @@
       "keywords": "ascii,asciiart,tekst,tegner",
       "title": "ASCII-kunsttekstgenerator"
     },
+    "barcode-scanner": {
+      "description": "Skann og dekod QR-koder og strekkoder fra et bilde eller kameraet ditt, helt i nettleseren. Støtter QR, Data Matrix, PDF417, Aztec, EAN, UPC, Code 128 og mer.",
+      "keywords": "qr,kode,leser,skanner,strekkode,dekod,qr reader,qrcode,ean,upc,code128,datamatrix,pdf417,aztec,kamera,skann",
+      "title": "Strekkode- og QR-skanner"
+    },
     "base-converter": {
       "description": "Konverter et heltall mellom forskjellige baser (desimal, hexadesimal, binær, oktal, base64, etc.)",
       "keywords": "heltall,tall,base,konvertering,desimal,heksadesimal,binær,oktalt,base64",

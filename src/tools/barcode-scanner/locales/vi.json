@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "Gọi điện",
+      "camera": "Camera",
+      "cardTitle": "Trình quét mã vạch và QR",
+      "decodedContent": "Nội dung đã giải mã",
+      "dropHint": "Quét mã QR hoặc mã vạch từ tệp hình ảnh",
+      "dropTitle": "Thả hình ảnh hoặc nhấp để tải lên",
+      "errorCameraFailed": "Không thể khởi động camera. Vui lòng thử lại.",
+      "errorDecodeFailed": "Không thể đọc hình ảnh. Vui lòng thử tệp khác.",
+      "errorInvalidFileType": "Vui lòng chọn một tệp hình ảnh.",
+      "errorNoCodeFound": "Không tìm thấy mã vạch hoặc mã QR trong hình ảnh.",
+      "notSupported": "Trình duyệt của bạn không hỗ trợ truy cập camera.",
+      "notSupportedTitle": "Không được hỗ trợ",
+      "openLink": "Mở liên kết",
+      "permissionBlocked": "Quyền truy cập camera đã bị từ chối. Hãy bật quyền này trong cài đặt trình duyệt (thường ở biểu tượng ổ khóa trên thanh địa chỉ).",
+      "permissionBlockedTitle": "Quyền bị chặn",
+      "resultTitle": "Kết quả quét",
+      "scanAgain": "Quét mã khác",
+      "scanning": "Đang quét…",
+      "sendEmail": "Gửi email",
+      "startScan": "Bắt đầu quét",
+      "stopScan": "Dừng",
+      "tabCamera": "Camera",
+      "tabImage": "Hình ảnh",
+      "unknownCamera": "Camera"
+    }
+  }
+}

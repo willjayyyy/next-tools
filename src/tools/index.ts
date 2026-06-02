@@ -10,6 +10,7 @@ import { tool as dateCalculator } from './date-calculator';
 import { tool as icoGenerator } from './ico-generator';
 import { tool as base64StringConverter } from './base64-string-converter';
 
+import { tool as barcodeScanner } from './barcode-scanner';
 import { tool as basicAuthGenerator } from './basic-auth-generator';
 
 import { tool as bcrypt } from './bcrypt';
@@ -155,7 +156,7 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'Images and videos',
-    components: [qrCodeGenerator, wifiQrCodeGenerator, svgPlaceholderGenerator, icoGenerator],
+    components: [qrCodeGenerator, wifiQrCodeGenerator, barcodeScanner, svgPlaceholderGenerator, icoGenerator],
   },
   {
     name: 'Development',

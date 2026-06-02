@@ -207,6 +207,11 @@
       "keywords": "ascii,arte ascii,texto,desenhador",
       "title": "Gerador de texto ASCII art"
     },
+    "barcode-scanner": {
+      "description": "Leia e decodifique códigos QR e de barras a partir de uma imagem ou da sua câmera, totalmente no navegador. Compatível com QR, Data Matrix, PDF417, Aztec, EAN, UPC, Code 128 e mais.",
+      "keywords": "qr,codigo,leitor,scanner,codigo de barras,decodificar,qr reader,qrcode,ean,upc,code128,datamatrix,pdf417,aztec,camera,ler",
+      "title": "Leitor de códigos de barras e QR"
+    },
     "base-converter": {
       "description": "Converte números entre diferentes bases (decimal, hexadecimal, binário, octal, base64, ...).",
       "keywords": "inteiro,número,base,conversão,decimal,hexadecimal,binário,octal,base64",

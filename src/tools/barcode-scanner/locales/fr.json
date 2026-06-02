@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "Appeler",
+      "camera": "Caméra",
+      "cardTitle": "Lecteur de codes-barres et QR",
+      "decodedContent": "Contenu décodé",
+      "dropHint": "Scannez un code QR ou un code-barres depuis un fichier image",
+      "dropTitle": "Déposez une image ou cliquez pour téléverser",
+      "errorCameraFailed": "Impossible de démarrer la caméra. Veuillez réessayer.",
+      "errorDecodeFailed": "Impossible de lire l'image. Veuillez essayer un autre fichier.",
+      "errorInvalidFileType": "Veuillez sélectionner un fichier image.",
+      "errorNoCodeFound": "Aucun code-barres ou QR code trouvé dans l'image.",
+      "notSupported": "Votre navigateur ne prend pas en charge l'accès à la caméra.",
+      "notSupportedTitle": "Non pris en charge",
+      "openLink": "Ouvrir le lien",
+      "permissionBlocked": "L'autorisation de la caméra a été refusée. Activez-la dans les paramètres du navigateur (généralement via l'icône de cadenas dans la barre d'adresse).",
+      "permissionBlockedTitle": "Autorisation bloquée",
+      "resultTitle": "Résultat de l'analyse",
+      "scanAgain": "Scanner un autre",
+      "scanning": "Analyse…",
+      "sendEmail": "Envoyer un e-mail",
+      "startScan": "Démarrer l'analyse",
+      "stopScan": "Arrêter",
+      "tabCamera": "Caméra",
+      "tabImage": "Image",
+      "unknownCamera": "Caméra"
+    }
+  }
+}

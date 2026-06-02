@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "Anrufen",
+      "camera": "Kamera",
+      "cardTitle": "Barcode- & QR-Scanner",
+      "decodedContent": "Dekodierter Inhalt",
+      "dropHint": "QR-Code oder Barcode aus einer Bilddatei scannen",
+      "dropTitle": "Bild ablegen oder zum Hochladen klicken",
+      "errorCameraFailed": "Die Kamera konnte nicht gestartet werden. Bitte versuche es erneut.",
+      "errorDecodeFailed": "Das Bild konnte nicht gelesen werden. Bitte versuche eine andere Datei.",
+      "errorInvalidFileType": "Bitte wähle eine Bilddatei aus.",
+      "errorNoCodeFound": "Kein Barcode oder QR-Code im Bild gefunden.",
+      "notSupported": "Dein Browser unterstützt keinen Kamerazugriff.",
+      "notSupportedTitle": "Nicht unterstützt",
+      "openLink": "Link öffnen",
+      "permissionBlocked": "Die Kameraberechtigung wurde verweigert. Aktiviere sie in den Browsereinstellungen (meist über das Schloss-Symbol in der Adressleiste).",
+      "permissionBlockedTitle": "Berechtigung blockiert",
+      "resultTitle": "Scan-Ergebnis",
+      "scanAgain": "Weiteren scannen",
+      "scanning": "Scannen…",
+      "sendEmail": "E-Mail senden",
+      "startScan": "Scan starten",
+      "stopScan": "Stopp",
+      "tabCamera": "Kamera",
+      "tabImage": "Bild",
+      "unknownCamera": "Kamera"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "barcode-scanner": {
+      "call": "拨打电话",
+      "camera": "摄像头",
+      "cardTitle": "条码与二维码扫描器",
+      "decodedContent": "解码内容",
+      "dropHint": "从图片文件中扫描二维码或条形码",
+      "dropTitle": "拖入图片或点击上传",
+      "errorCameraFailed": "无法启动摄像头，请重试。",
+      "errorDecodeFailed": "无法读取该图片，请换一张试试。",
+      "errorInvalidFileType": "请选择一个图片文件。",
+      "errorNoCodeFound": "图片中未找到条码或二维码。",
+      "notSupported": "你的浏览器不支持访问摄像头。",
+      "notSupportedTitle": "不支持",
+      "openLink": "打开链接",
+      "permissionBlocked": "摄像头权限被拒绝。请在浏览器设置中开启（通常在地址栏的锁形图标里）。",
+      "permissionBlockedTitle": "权限被拒绝",
+      "resultTitle": "扫描结果",
+      "scanAgain": "再扫一个",
+      "scanning": "扫描中…",
+      "sendEmail": "发送邮件",
+      "startScan": "开始扫描",
+      "stopScan": "停止",
+      "tabCamera": "摄像头",
+      "tabImage": "图片",
+      "unknownCamera": "摄像头"
+    }
+  }
+}

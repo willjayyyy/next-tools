@@ -207,6 +207,11 @@
       "keywords": "ascii,nghệ thuật ascii,văn bản,trình vẽ",
       "title": "Trình tạo văn bản ASCII art"
     },
+    "barcode-scanner": {
+      "description": "Quét và giải mã mã QR và mã vạch từ hình ảnh hoặc camera, hoàn toàn trong trình duyệt. Hỗ trợ QR, Data Matrix, PDF417, Aztec, EAN, UPC, Code 128 và nhiều hơn nữa.",
+      "keywords": "qr,ma,doc,quet,ma vach,giai ma,qr reader,qrcode,ean,upc,code128,datamatrix,pdf417,aztec,camera,scan",
+      "title": "Trình quét mã vạch và QR"
+    },
     "base-converter": {
       "description": "Chuyển đổi số giữa các cơ số khác nhau (thập phân, thập lục phân, nhị phân, bát phân, base64, ...)",
       "keywords": "số nguyên,số,cơ số,chuyển đổi,thập phân,thập lục phân,nhị phân,bát phân,base64",
