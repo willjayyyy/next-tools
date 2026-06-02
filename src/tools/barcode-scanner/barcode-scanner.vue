@@ -76,7 +76,7 @@ const {
   ensurePermissions,
 } = useDevicesList({ constraints: { video: true } })
 
-const errorMessage = computed(() => (errorKey.value ? t(errorKey.value, 'An error occurred') : ''))
+const errorMessage = computed(() => (errorKey.value ? t(`tools.barcode-scanner.${errorKey.value}`, 'An error occurred') : ''))
 
 const currentCameraLabel = computed(() => {
   const cam = cameras.value.find(c => c.deviceId === currentCamera.value)
