@@ -200,9 +200,17 @@ export const useConsentStore = defineStore('consent', () => {
   // Handle version checking and migration
   const consentState = computed({
     get: () => {
+      if (!config.consent.enabled) {
+        return fullyConsentState;
+      }
+
+      if (!regionInfo.value) {
+        return defaultConsentState;
+      }
+
       // In strict mode, always require consent; otherwise check region requirement
-      const requiresConsent = config.consent.strict || regionInfo.value?.requiresConsent;
-      if (regionInfo.value && !requiresConsent) {
+      const requiresConsent = config.consent.strict || regionInfo.value.requiresConsent;
+      if (!requiresConsent) {
         return fullyConsentState;
       }
 

@@ -1,39 +1,29 @@
 <script lang="ts" setup>
 import { config } from '@/config';
-import { addGtag, configure,  consent } from 'vue-gtag';
+import { addGtag, configure, consent } from 'vue-gtag';
 import { useConsentStore } from '@/stores/consent.store';
-import { watch, computed } from 'vue';
-import { isUndefined } from 'lodash-es';
+import { watch } from 'vue';
 import { whenever } from '@vueuse/core';
 
-const { consentState } = useConsentStore();
+const consentStore = useConsentStore();
 const id = config.googleAnalytics.id;
 
 if (id) {
-  const hasConsent = computed(() => {
-    return !isUndefined(consentState.analytics) || !isUndefined(consentState.marketing);
+  const getConsentParams = () => ({
+    ad_storage: consentStore.consentState.marketing ? 'granted' as const : 'denied' as const,
+    analytics_storage: consentStore.consentState.analytics ? 'granted' as const : 'denied' as const,
   });
-  
-  whenever(hasConsent, () => {
+
+  whenever(() => consentStore.consentState.analytics === true, () => {
     configure({
       tagId: id,
-      config: {
-        ad_storage: consentState.analytics ? 'granted' : 'denied',
-        analytics_storage: consentState.marketing ? 'granted' : 'denied',
-      },
+      initMode: 'manual',
     });
-    addGtag();
+    consent('default', getConsentParams());
+    void addGtag();
     watch(
-      () => ({
-        analytics: consentState.analytics,
-        marketing: consentState.marketing,
-      }),
-      ({ analytics, marketing }) => {
-        consent('update', {
-          ad_storage: marketing ? 'granted' : 'denied',
-          analytics_storage: analytics ? 'granted' : 'denied',
-        });
-      },
+      getConsentParams,
+      params => consent('update', params),
     );
   }, {
     immediate: true,
